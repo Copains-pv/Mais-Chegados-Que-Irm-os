@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Cadastro - Copains</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      .form-container {
+        display: none;
+      }
+      .form-container.active {
+        display: block;
+      }
+      /* Estilo para garantir a cor da mensagem não seja sobrescrita */
+      .message-success {
+        color: #10b981; /* green-500 */
+      }
+      .message-error {
+        color: #ef4444; /* red-500 */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+      <!-- Abas de Navegação -->
+      <div class="flex border-b mb-6">
+        <button
+          id="show-login"
+          class="flex-1 py-2 text-center font-semibold border-b-2 border-red-500 text-red-500"
+        >
+          Login
+        </button>
+        <button
+          id="show-register"
+          class="flex-1 py-2 text-center font-semibold text-gray-500"
+        >
+          Cadastro
+        </button>
+      </div>
+
+      <!-- Formulário de Login -->
+      <div id="login-form" class="form-container active">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+          Acesse sua Conta
+        </h2>
+        <form id="login">
+          <div class="mb-4">
+            <label for="login-email" class="block text-gray-700 font-bold mb-2"
+              >E-mail:</label
+            >
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="login-password"
+              class="block text-gray-700 font-bold mb-2"
+              >Senha:</label
+            >
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+          <div class="text-right mb-6">
+            <a
+              href="#"
+              id="show-forgot-password"
+              class="text-sm text-red-500 hover:underline"
+              >Esqueceu a senha?</a
+            >
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline w-full"
+            >
+              Entrar
+            </button>
+          </div>
+          <!-- Mensagens de erro/sucesso para o login -->
+          <div id="login-message" class="mt-4 text-center font-semibold"></div>
+        </form>
+      </div>
+
+      <!-- Formulário de Cadastro -->
+      <div id="register-form" class="form-container">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+          Crie sua Conta
+        </h2>
+        <form id="register">
+          <div class="mb-4">
+            <label
+              for="register-name"
+              class="block text-gray-700 font-bold mb-2"
+              >Nome:</label
+            >
+            <input
+              type="text"
+              id="register-name"
+              name="name"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="register-email"
+              class="block text-gray-700 font-bold mb-2"
+              >E-mail:</label
+            >
+            <input
+              type="email"
+              id="register-email"
+              name="email"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="register-password"
+              class="block text-gray-700 font-bold mb-2"
+              >Senha:</label
+            >
+            <input
+              type="password"
+              id="register-password"
+              name="password"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline w-full"
+            >
+              Cadastrar
+            </button>
+          </div>
+          <!-- Mensagens de erro/sucesso para o cadastro -->
+          <div
+            id="register-message"
+            class="mt-4 text-center font-semibold"
+          ></div>
+        </form>
+      </div>
+
+      <!-- Formulário de Recuperação de Senha -->
+      <div id="forgot-password-form" class="form-container">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+          Recuperar Senha
+        </h2>
+        <p class="text-center text-gray-600 mb-6">
+          Digite seu e-mail e enviaremos um link para redefinir sua senha.
+        </p>
+        <form id="forgot-password">
+          <div class="mb-4">
+            <label for="forgot-email" class="block text-gray-700 font-bold mb-2"
+              >E-mail:</label
+            >
+            <input
+              type="email"
+              id="forgot-email"
+              name="email"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+              placeholder="seu.email@exemplo.com"
+            />
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline w-full"
+            >
+              Enviar E-mail de Recuperação
+            </button>
+          </div>
+          <!-- Mensagens de erro/sucesso para a recuperação -->
+          <div id="forgot-message" class="mt-4 text-center font-semibold"></div>
+          <div class="text-center mt-4">
+            <a
+              href="#"
+              id="back-to-login"
+              class="text-sm text-red-500 hover:underline"
+              >Voltar para o Login</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Uso de localStorage para simular um banco de dados de usuários persistente.
+      // Em uma aplicação real, seria usado um serviço de backend como Firebase Firestore.
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const showLoginBtn = document.getElementById("show-login");
+        const showRegisterBtn = document.getElementById("show-register");
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+        const forgotPasswordForm = document.getElementById(
+          "forgot-password-form"
+        );
+        const showForgotPasswordBtn = document.getElementById(
+          "show-forgot-password"
+        );
+        const backToLoginBtn = document.getElementById("back-to-login");
+
+        const loginMessage = document.getElementById("login-message");
+        const registerMessage = document.getElementById("register-message");
+        const forgotMessage = document.getElementById("forgot-message");
+
+        function showForm(formToShow) {
+          [loginForm, registerForm, forgotPasswordForm].forEach((form) =>
+            form.classList.remove("active")
+          );
+          formToShow.classList.add("active");
+
+          // Limpa mensagens e classes de cor ao trocar de aba
+          loginMessage.textContent = "";
+          registerMessage.textContent = "";
+          forgotMessage.textContent = "";
+          forgotMessage.classList.remove("message-success", "message-error");
+
+          // Atualiza estilo das abas
+          const isLogin = formToShow === loginForm;
+          const isRegister = formToShow === registerForm;
+
+          showLoginBtn.classList.toggle("border-red-500", isLogin);
+          showLoginBtn.classList.toggle("text-red-500", isLogin);
+          showLoginBtn.classList.toggle("text-gray-500", !isLogin);
+
+          showRegisterBtn.classList.toggle("border-red-500", isRegister);
+          showRegisterBtn.classList.toggle("text-red-500", isRegister);
+          showRegisterBtn.classList.toggle("text-gray-500", !isRegister);
+
+          // Esconde as abas no formulário de recuperação
+          showLoginBtn.parentElement.style.display =
+            formToShow === forgotPasswordForm ? "none" : "flex";
+        }
+
+        // Lógica para alternar entre os formulários
+        showLoginBtn.addEventListener("click", () => showForm(loginForm));
+        showRegisterBtn.addEventListener("click", () => showForm(registerForm));
+        showForgotPasswordBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          showForm(forgotPasswordForm);
+        });
+        backToLoginBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          showForm(loginForm);
+        });
+
+        // --- LÓGICA DE LOGIN COM VALIDAÇÃO (mantida) ---
+        document.getElementById("login").addEventListener("submit", (e) => {
+          e.preventDefault();
+          loginMessage.textContent = "";
+
+          const registeredUsers =
+            JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          const email = e.target.email.value;
+          const password = e.target.password.value;
+
+          const foundUser = registeredUsers.find(
+            (user) => user.email === email && user.password === password
+          );
+
+          if (foundUser) {
+            loginMessage.textContent =
+              "Login realizado com sucesso! Redirecionando...";
+            loginMessage.classList.remove("text-red-500");
+            loginMessage.classList.add("text-green-500");
+
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("loggedInUserEmail", email);
+
+            setTimeout(() => {
+              const redirectUrl = "area_do_usuario.html";
+              window.location.href = redirectUrl;
+            }, 1000);
+          } else {
+            loginMessage.textContent =
+              "E-mail ou senha incorretos. Tente novamente ou cadastre-se.";
+            loginMessage.classList.remove("text-green-500");
+            loginMessage.classList.add("text-red-500");
+          }
+        });
+
+        // --- LÓGICA DE CADASTRO (mantida) ---
+        document.getElementById("register").addEventListener("submit", (e) => {
+          e.preventDefault();
+          registerMessage.textContent = "";
+
+          const registeredUsers =
+            JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          const name = e.target.name.value;
+          const email = e.target.email.value;
+          const password = e.target.password.value;
+
+          if (registeredUsers.some((user) => user.email === email)) {
+            registerMessage.textContent =
+              "Este e-mail já está cadastrado. Tente fazer o login.";
+            registerMessage.classList.remove("text-green-500");
+            registerMessage.classList.add("text-red-500");
+            return;
+          }
+
+          registeredUsers.push({ name, email, password });
+          localStorage.setItem(
+            "registeredUsers",
+            JSON.stringify(registeredUsers)
+          );
+
+          registerMessage.textContent =
+            "Cadastro realizado com sucesso! Você já pode fazer o login.";
+          registerMessage.classList.remove("text-red-500");
+          registerMessage.classList.add("text-green-500");
+
+          e.target.reset();
+        });
+
+        // --- LÓGICA DE RECUPERAÇÃO DE SENHA (SIMULAÇÃO UX) ---
+        document
+          .getElementById("forgot-password")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            forgotMessage.textContent = ""; // Limpa mensagem anterior
+            forgotMessage.classList.remove("message-success", "message-error");
+
+            const form = e.target;
+            const emailToRecover = form.elements["forgot-email"].value;
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            // 1. Início do Estado de Carregamento (UX Responsiva)
+            submitButton.disabled = true;
+            submitButton.textContent = "Enviando...";
+
+            // Simula o tempo de latência de uma requisição de rede (1.5 segundos)
+            setTimeout(() => {
+              // Simula a verificação do backend (usando localStorage como 'DB')
+              const registeredUsers =
+                JSON.parse(localStorage.getItem("registeredUsers")) || [];
+              const userExists = registeredUsers.some(
+                (user) => user.email === emailToRecover
+              );
+              let result;
+
+              if (userExists) {
+                // 2. Simulação de Sucesso
+                result = {
+                  success: true,
+                  message: `Link de redefinição enviado para: ${emailToRecover}. (Simulado)`,
+                };
+              } else {
+                // 3. Simulação de Erro (Email não encontrado)
+                result = {
+                  success: false,
+                  message: `E-mail "${emailToRecover}" não encontrado em nosso sistema.`,
+                };
+              }
+
+              // Aplica o feedback visual
+              if (result.success) {
+                forgotMessage.textContent = result.message;
+                forgotMessage.classList.add("message-success");
+                forgotMessage.classList.remove("message-error");
+              } else {
+                forgotMessage.textContent = result.message;
+                forgotMessage.classList.add("message-error");
+                forgotMessage.classList.remove("message-success");
+              }
+
+              // 4. Fim do Estado de Carregamento (UX Responsiva)
+              submitButton.disabled = false;
+              submitButton.textContent = "Enviar E-mail de Recuperação";
+              form.reset();
+            }, 1500); // Fim do setTimeout
+          });
+      });
+    </script>
+  </body>
+</html>

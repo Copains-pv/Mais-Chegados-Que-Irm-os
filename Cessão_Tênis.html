@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copains - Moda e Estilo</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome para Ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* ======================= */
+      /* RESET E GLOBAIS         */
+      /* ======================= */
+      :root {
+        --primary-color: #ff6f61;
+        --dark-color: #111111;
+        --light-color: #ffffff;
+        --text-color: #333;
+        --gray-light: #f4f4f4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text-color);
+        background-color: var(--light-color);
+        /* Adiciona padding no topo para não ficar atrás do header fixo */
+        padding-top: 80px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* ======================= */
+      /* HEADER / NAVEGAÇÃO      */
+      /* ======================= */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--light-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        height: 80px;
+      }
+
+      .header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--dark-color);
+      }
+
+      .header .nav-links {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .header .nav-links a {
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .header .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .header .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .header .nav-icons a {
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+        position: relative; /* Para o contador do carrinho */
+      }
+
+      .header .nav-icons a:hover {
+        color: var(--primary-color);
+      }
+      
+      .cart-item-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 50%;
+        font-weight: bold;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      /* Estilos para a barra de pesquisa do Header */
+      .search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        padding: 0.5rem 1rem 0.5rem 2.5rem; /* Espaço à esquerda para o ícone */
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        color: #aaa;
+      }
+
+      /* ======================= */
+      /* FILTRO DE PESQUISA      */
+      /* ======================= */
+      .catalog-search-container {
+        position: relative;
+        margin: 0 auto 3rem; /* Centraliza e adiciona margem inferior */
+        max-width: 500px;
+      }
+
+      #catalog-search-input {
+        width: 100%;
+        padding: 0.75rem 1.5rem 0.75rem 3.5rem; /* Espaço para o ícone */
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        font-size: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.3s;
+      }
+      
+      #catalog-search-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .catalog-search-icon {
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+      }
+      
+      /* Mensagem de "Nenhum produto encontrado" */
+      #no-results-message {
+        text-align: center;
+        color: #666;
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        display: none; /* Oculto por padrão */
+        grid-column: 1 / -1;
+      }
+
+      /* ======================= */
+      /* SEÇÃO HERO (BANNER)     */
+      /* ======================= */
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(90vh - 80px); /* Altura da viewport menos a altura do header */
+        color: var(--light-color);
+        text-align: center;
+        position: relative;
+        background: url("https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop") no-repeat center center/cover;
+      }
+
+      /* Overlay para escurecer a imagem de fundo e melhorar a legibilidade */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-content {
+        position: relative; /* Para ficar acima do overlay */
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: #e65a50; /* Tom mais escuro do primário */
+        transform: translateY(-3px);
+      }
+
+      /* ======================= */
+      /* CATÁLOGO DE PRODUTOS    */
+      /* ======================= */
+      .product-catalog {
+        padding: 5rem 0;
+      }
+
+      .product-catalog h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--dark-color);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+        background: var(--light-color);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        position: relative; /* Para posicionar o ícone de favorito */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        background-color: #f9f9f9; /* Cor de fundo se imagem falhar */
+      }
+
+      .product-info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+      }
+
+      .product-name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-price {
+        color: var(--text-color);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .add-to-cart-btn {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block; /* Garante que a tag <a> ocupe a largura total */
+        width: 100%;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: var(--primary-color);
+      }
+
+      .buy-now-btn {
+        background-color: #e65a50;
+        color: var(--light-color);
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block; /* Garante que a tag <a> ocupe a largura total */
+        width: 100%;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+
+      .buy-now-btn:hover {
+        background-color: #d34a40; /* Tom mais escuro */
+      }
+
+      .favorite-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #ccc;
+        transition: color 0.3s ease;
+        z-index: 10;
+        background: rgba(255,255,255,0.7);
+        border-radius: 50%;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .favorite-icon:hover {
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      /* Estilo para o ícone de favorito ativo */
+      .favorite-icon.favorited i {
+        color: var(--primary-color);
+        font-weight: 900; /* Torna o ícone sólido (fas) */
+      }
+
+      /* ======================= */
+      /* MODAL DO CARRINHO       */
+      /* ======================= */
+      .cart-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .cart-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .cart-modal {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Começa fora da tela */
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background-color: var(--light-color);
+        z-index: 2000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+        transition: right 0.4s ease-in-out;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cart-modal.active {
+        right: 0;
+      }
+
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cart-header h3 {
+        font-size: 1.5rem;
+      }
+
+      .cart-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      .cart-body {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 1rem;
+      }
+      
+      .empty-cart-msg {
+          text-align: center;
+          margin-top: 2rem;
+          color: #777;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .cart-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 1rem;
+      }
+      .cart-item-info {
+        flex-grow: 1;
+      }
+      .cart-item-info h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .cart-item-info p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+      .cart-item-actions {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+      .cart-item-actions button {
+        background: #eee;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        width: 30px; /* Largura fixa */
+        height: 30px; /* Altura fixa */
+        line-height: 1; /* Centraliza o texto verticalmente */
+        font-size: 1rem;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cart-item-actions span {
+        padding: 0 1rem;
+        font-weight: 700;
+      }
+      .cart-footer {
+        padding: 1.5rem;
+        border-top: 1px solid #eee;
+      }
+      .cart-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .checkout-btn {
+        width: 100%;
+      }
+
+      /* ======================= */
+      /* RODAPÉ (FOOTER)         */
+      /* ======================= */
+      .footer {
+        background-color: var(--dark-color);
+        color: var(--gray-light);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--light-color);
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-column ul a {
+        color: #ccc;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column ul a:hover {
+        color: var(--primary-color);
+      }
+
+      .social-icons a {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: #ccc;
+        transition: color 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        color: var(--primary-color);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      /* Estilo para os títulos de categoria */
+      .category-title {
+        grid-column: 1 / -1; /* Faz o título ocupar todas as colunas da grade */
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+      
+      /* ======================= */
+      /* RESPONSIVIDADE          */
+      /* ======================= */
+      @media (max-width: 992px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding-top: 70px;
+        }
+        .header {
+          height: 70px;
+          padding: 1rem;
+        }
+        .header .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%; /* Começa fora da tela */
+          width: 100%;
+          height: calc(100vh - 70px);
+          background-color: var(--light-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: 2rem;
+          gap: 2rem;
+          transition: left 0.3s ease-in-out;
+          box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+        }
+
+        .header .nav-links.active {
+          left: 0; /* Mostra o menu */
+        }
+
+        .header .nav-links a {
+          font-size: 1.5rem;
+        }
+
+        .hamburger {
+          display: block; /* Mostra o ícone do hambúrguer */
+          z-index: 1001; /* Garante que fique acima de outros elementos */
+        }
+
+        /* Esconde a barra de pesquisa do header em telas menores para dar espaço ao menu */
+        .header .search-container {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .social-icons {
+          text-align: center;
+          margin-top: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          height: calc(80vh - 70px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ======================= -->
+    <!-- BARRA DE NAVEGAÇÃO      -->
+    <!-- ======================= -->
+    <header class="header">
+      <a href="index_Logado.html" class="logo">Copains</a>
+
+      <nav>
+        <ul class="nav-links" id="mobile-menu">
+          <li><a href="index_Logado.html">Início</a></li>
+          <li><a href="javascript:void(0);" class="open-cart-link">Carrinho</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
+          <li><a href="index.html">Sair</a></li>
+        </ul>
+      </nav>
+
+      <!-- Barra de Pesquisa Header -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar..."
+          id="header-search-input"
+        />
+      </div>
+
+      <div class="nav-icons">
+        <a
+          href="javascript:void(0);"
+          class="cart-icon-wrapper"
+          id="cart-icon"
+          aria-label="Abrir carrinho de compras"
+        >
+          <a href="carrinho.html" class="fas fa-shopping-cart"></a>
+          <span class="cart-item-count" id="cart-item-count">0</span>
+        </a>
+        <a href="area_do_usuario.html" aria-label="Conta do usuário"
+          ><i class="fas fa-user"></i
+        ></a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <!-- =========================== -->
+      <!-- SEÇÃO PRINCIPAL (HERO BANNER) -->
+      <!-- =========================== -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Mas Chegados Que Irmãos</h1>
+          <p>Estilo e conforto para seus dias.</p>
+          <!-- Link suave para a seção de produtos -->
+          <button onclick="document.querySelector('.product-catalog').scrollIntoView({behavior: 'smooth'})" class="cta-button">Seja bem Vindo</button>
+        </div>
+      </section>
+
+            <!-- ======================= -->
+      <!-- SEÇÃO DO CATÁLOGO       -->
+      <!-- ======================= -->
+      <section class="product-catalog container">
+        <h2>Tênis</h2>
+        <!-- Barra de Pesquisa do Catálogo -->
+        <div class="catalog-search-container">
+          <i class="fas fa-search catalog-search-icon"></i>
+          <input
+            type="text"
+            id="catalog-search-input"
+            placeholder="Pesquisar no catálogo..."
+          />
+        </div>
+
+        
+         
+         
+          
+          
+          <!-- Produto 31 - Air force branco, preto e preto -->
+          <div
+            class="product-card"
+            data-id="prod-new-006"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="Tênis Preto e Braco.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img src="Tênis Preto e Braco.jpg" alt="Air force" />
+            <div class="product-info">
+              <h3 class="product-name">Air Force Preto e Branco</h3>
+              <p class="product-price">R$ 150,00</p>
+              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a
+                href="Tênis_AIR_force_Branco_Preto.html"
+                class="buy-now-btn"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <!-- Produto 32 - Air force branco e cinza -->
+          <div
+            class="product-card"
+            data-id="prod-new-007"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="tênis branco e ciza.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img src="tênis branco e ciza.jpg" alt="Air force" />
+            <div class="product-info">
+              <h3 class="product-name">Air force Branco e Cinza</h3>
+              <p class="product-price">R$ 150,00</p>
+              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a href="Tênis_Branco_e_cinza.html" class="buy-now-btn nav-link"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+        
+          <!-- Produto 33 - Air force branco com rosa -->
+          <div
+            class="product-card"
+            data-id="prod-new-008"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="Tênis  brnco e rosa.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img src="Tênis  brnco e rosa.jpg" alt="Air force" />
+            <div class="product-info">
+              <h3 class="product-name">Air Force Branco e Cinza</h3>
+              <p class="product-price">R$ 150,00</p>
+              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a href="Tênis_Air_for_branco_e_cinza.html" class="buy-now-btn">Comprar</a>
+              
+            </div>
+          </div>
+
+          <!-- Produto 34 - Air Force Marrom -->
+          <div
+            class="product-card"
+            data-id="prod-new-011"
+            data-name="Air Force"
+            data-price="150.00"
+            data-image="Tênis marrom.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img src="Tênis marrom.jpg" alt="Air Force Marrom" />
+            <div class="product-info">
+              <h3 class="product-name">Air Force Marron</h3>
+              <p class="product-price">R$ 150,00</p>
+              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a href="tênis_marron.html" class="buy-now-btn nav-link"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================= -->
+    <!-- RODAPÉ (FOOTER)         -->
+    <!-- ======================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>Categorias</h4>
+            <ul class="list-unstyled">
+              <li><a href="index_Logado.html">Início</a></li>
+              <li><a href="catalogo_de_produtos.html">Produtos</a></li>
+              <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Links Úteis</h4>
+            <ul class="list-unstyled">
+              <li><a href="sobre_Nois.html">Sobre Nós</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="Politicas_de_privacidade.html">Política de Privacidade</a></li>
+              <li><a href="Termos_de_Uso.html">Termos de Serviço</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Fique Conectado</h4>
+            <div class="social-icons">
+              <a href="http://www.facebook.com/Copains Pv"><i class="fab fa-facebook-f"></i></a>
+              <a href="http://www.instagram.com/Copains.pv"><i class="fab fa-instagram"></i></a>
+              <a href="http://wa.me/552198092293"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="mb-0">&copy; 2024 Copains. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer> 
+
+    <!-- ======================= -->
+    <!-- MODAL DO CARRINHO       -->
+    <!-- ======================= -->
+    <div class="cart-modal-overlay" id="cart-modal-overlay">
+      <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+          <h3>Meu Carrinho</h3>
+          <button class="cart-close-btn" id="cart-close-btn">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+          <p class="empty-cart-msg">Seu carrinho está vazio.</p>
+          <!-- Itens do carrinho serão inseridos aqui via JS -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">R$ 0,00</span>
+          </div>
+          <button class="cta-button checkout-btn">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Lógica do Menu Mobile ---
+            const hamburger = document.getElementById('hamburger-btn');
+            const navLinks = document.getElementById('mobile-menu');
+            
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = hamburger.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // --- Lógica da Pesquisa de Produtos (Catálogo) ---
+            const searchInput = document.getElementById('catalog-search-input');
+            const products = document.querySelectorAll('.product-card');
+            const noResultsMsg = document.getElementById('no-results-message');
+
+            function filterProducts(searchTerm) {
+                let hasResults = false;
+                const term = searchTerm.toLowerCase().trim();
+
+                products.forEach(product => {
+                    const productName = product.getAttribute('data-name').toLowerCase();
+                    if (productName.includes(term)) {
+                        product.style.display = 'flex'; // Mantém o display flex do card
+                        hasResults = true;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+
+                if (noResultsMsg) {
+                    noResultsMsg.style.display = hasResults ? 'none' : 'block';
+                }
+            }
+
+            if(searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    filterProducts(e.target.value);
+                });
+            }
+            
+            // --- Lógica da Pesquisa do Header (Leva ao catálogo) ---
+            const headerSearch = document.getElementById('header-search-input');
+            if(headerSearch && searchInput) {
+                headerSearch.addEventListener('input', (e) => {
+                     // Rola até o catálogo
+                    const catalog = document.querySelector('.product-catalog');
+                    if(catalog && window.scrollY < 200) {
+                         catalog.scrollIntoView({behavior: 'smooth'});
+                    }
+                    // Preenche o input do catálogo e dispara o evento
+                    searchInput.value = e.target.value;
+                    filterProducts(e.target.value);
+                });
+            }
+
+            // --- Lógica de Favoritos ---
+            const favIcons = document.querySelectorAll('.favorite-icon');
+            favIcons.forEach(icon => {
+                icon.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    icon.classList.toggle('favorited');
+                    const iTag = icon.querySelector('i');
+                    if(icon.classList.contains('favorited')) {
+                        iTag.classList.remove('far'); // Heart outline
+                        iTag.classList.add('fas');    // Heart solid
+                    } else {
+                        iTag.classList.remove('fas');
+                        iTag.classList.add('far');
+                    }
+                });
+            });
+
+            // --- Lógica Simples do Carrinho (Visual) ---
+            const cartOverlay = document.getElementById('cart-modal-overlay');
+            const cartModal = document.getElementById('cart-modal');
+            const cartCloseBtn = document.getElementById('cart-close-btn');
+            const openCartLinks = document.querySelectorAll('#cart-icon, .open-cart-link');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartItemCountSpan = document.getElementById('cart-item-count');
+            const cartBody = document.getElementById('cart-body');
+            const cartTotalSpan = document.getElementById('cart-total');
+            
+            let cartCount = 0;
+            let cartTotal = 0;
+            let cartItems = [];
+
+            // Abrir Carrinho
+            openCartLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cartOverlay.classList.add('active');
+                    cartModal.classList.add('active');
+                });
+            });
+
+            // Fechar Carrinho
+            function closeCart() {
+                cartOverlay.classList.remove('active');
+                cartModal.classList.remove('active');
+            }
+            
+            if(cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
+            if(cartOverlay) {
+                cartOverlay.addEventListener('click', (e) => {
+                    if(e.target === cartOverlay) closeCart();
+                });
+            }
+
+            // Adicionar ao Carrinho
+            addToCartButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = btn.closest('.product-card');
+                    const id = card.getAttribute('data-id');
+                    const name = card.getAttribute('data-name');
+                    const price = parseFloat(card.getAttribute('data-price'));
+                    const image = card.getAttribute('data-image');
+                    const fallbackImage = 'https://placehold.co/80x80/eee/999?text=Item'; // Fallback visual
+
+                    // Adicionar item ao array (Lógica simplificada)
+                    cartItems.push({ id, name, price, image });
+                    
+                    // Atualizar contador
+                    cartCount++;
+                    cartItemCountSpan.textContent = cartCount;
+                    
+                    // Atualizar Total
+                    cartTotal += price;
+                    cartTotalSpan.textContent = `R$ ${cartTotal.toFixed(2).replace('.', ',')}`;
+
+                    // Atualizar UI do Carrinho
+                    updateCartUI();
+                    
+                    // Feedback visual (opcional: abrir o carrinho)
+                    cartOverlay.classList.add('active');
+                    cartModal.classList.add('active');
+                });
+            });
+
+            function updateCartUI() {
+                if(cartItems.length === 0) {
+                    cartBody.innerHTML = '<p class="empty-cart-msg">Seu carrinho está vazio.</p>';
+                    return;
+                }
+
+                cartBody.innerHTML = '';
+                cartItems.forEach((item, index) => {
+                    const itemEl = document.createElement('div');
+                    itemEl.classList.add('cart-item');
+                    itemEl.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://placehold.co/80x80/eee/999?text=Item'">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                    `;
+                    cartBody.appendChild(itemEl);
+                });
+            }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Carrinho - Copains</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome para Ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --primary-color: #ff6f61;
+        --dark-color: #111111;
+        --light-color: #ffffff;
+        --text-color: #333;
+        --gray-light: #f8f9fa;
+        --border-color: #dee2e6;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text-color);
+        background-color: var(--gray-light);
+        padding-top: 80px; /* Espaçamento para o cabeçalho fixo */
+      }
+
+      .header {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: var(--light-color);
+        height: 80px;
+      }
+
+      .header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--dark-color);
+      }
+
+      .cart-item-row {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .cart-item-row:last-child {
+        border-bottom: none;
+      }
+
+      .product-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .quantity-controls button {
+        width: 35px;
+        height: 35px;
+        border: 1px solid var(--border-color);
+        background-color: #fff;
+      }
+
+      .quantity-controls span {
+        min-width: 40px;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .remove-btn {
+        color: #dc3545;
+        background: none;
+        border: none;
+      }
+
+      .summary-card {
+        background-color: var(--light-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        position: sticky;
+        top: 100px; /* header height + padding */
+      }
+
+      .cta-button {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #e65a50;
+      }
+
+      .footer {
+        background-color: var(--dark-color);
+        color: var(--gray-light);
+      }
+
+      .footer-column h4 {
+        color: var(--light-color);
+      }
+
+      .footer-column ul a {
+        color: #ccc;
+      }
+
+      .social-icons a {
+        color: #ccc;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #444;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Cabeçalho (Header) -->
+    <header class="header fixed-top">
+      <div
+        class="container d-flex justify-content-between align-items-center py-3"
+      >
+        <a href="index.html" class="logo text-decoration-none">Copains</a>
+        <nav class="d-none d-md-flex">
+          <ul class="nav nav-links gap-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index_Logado.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="catalogo_de_produtos.html"
+                >Produtos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="favoritos.html">Favoritos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-bold" href="carrinho.html"
+                >Carrinho</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index.html">Sair</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="d-none d-md-flex gap-3 align-items-center">
+          <a href="area_do_usuario.html" class="text-dark"
+            ><i class="fas fa-user"></i
+          ></a>
+          <a
+            href="carrinho.html"
+            class="text-dark position-relative"
+            aria-label="Ver carrinho de compras"
+          >
+            <i class="fas fa-shopping-cart"></i>
+            <span
+              id="cart-item-count"
+              class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle"
+              style="font-size: 0.75rem"
+              >0</span
+            >
+          </a>
+        </div>
+        <button
+          class="navbar-toggler d-md-none border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fas fa-bars fs-5"></span>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div class="collapse navbar-collapse d-md-none" id="navbarNav">
+        <ul class="navbar-nav w-100 text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index_Logado.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalogo_de_produtos.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favoritos.html">Favoritos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="carrinho.html">Carrinho</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container py-5">
+      <h1 class="mb-4">Meu Carrinho</h1>
+      <div class="row">
+        <!-- Coluna dos Itens do Carrinho -->
+        <div class="col-lg-8">
+          <div id="cart-page-items" class="bg-white rounded-3 shadow-sm p-3">
+            <!-- Itens do carrinho serão inseridos aqui pelo JS -->
+          </div>
+        </div>
+
+        <!-- Coluna do Resumo do Pedido -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="summary-card p-4">
+            <h3 class="mb-4">Resumo do Pedido</h3>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal</span>
+              <span id="summary-subtotal">R$ 0,00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span>Frete</span>
+              <span>Grátis</span>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-between fw-bold fs-5 my-3">
+              <span>Total</span>
+              <span id="summary-total">R$ 0,00</span>
+            </div>
+            <div class="d-grid gap-2">
+              <a href="gateway_carrinho.html" class="btn cta-button"
+                >Finalizar Compra</a
+              >
+              <a href="catalogo_de_produtos.html" class="btn btn-outline-dark"
+                >Continuar Comprando</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="footer text-light py-5 mt-5">
+      <div class="container">
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-md-4 footer-column">
+            <h4 class="mb-4">Categorias</h4>
+            <ul class="list-unstyled">
+              <li><a href="index_Logado.html">Inicio</a></li>
+              <li><a href="catalogo_de_produtos.html">Produtos</a></li>
+              <li><a href="carrinho.html">Carrinho</a></li>
+              <li><a href="index.html">Sair</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4 footer-column">
+            <h4>Links Úteis</h4>
+            <ul class="list-unstyled">
+              <li><a href="sobre_Nois.html">Sobre Nós</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li>
+                <a href="Politicas_de_privacidade.html"
+                  >Política de Privacidade</a
+                >
+              </li>
+              <li><a href="Termos_de_Uso.html">Termos de Serviço</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4 footer-column">
+            <h4>Fique Conectado</h4>
+            <div class="social-icons">
+              <a href="http://www.facebook.com/Copains Pv"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="http://www.instagram.com/Copains.pv"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="http://wa.me/552198092293"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom text-center pt-4">
+          <p class="mb-0">&copy; 2024 Copains. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script Principal (que já contém a lógica do carrinho) -->
+    <script src="main.js" defer></script>
+
+    <!-- Script específico para a página do carrinho -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cartItemsContainer = document.getElementById("cart-page-items");
+        const summarySubtotal = document.getElementById("summary-subtotal");
+        const summaryTotal = document.getElementById("summary-total");
+
+        // Função para renderizar os itens na página do carrinho
+        function renderCartPage() {
+          const cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+
+          if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+              <div class="text-center p-5">
+                <h4>Seu carrinho está vazio.</h4>
+                <p class="text-muted">Adicione produtos do nosso catálogo para vê-los aqui.</p>
+                <a href="catalogo_de_produtos.html" class="btn cta-button mt-3">Ver Produtos</a>
+              </div>
+            `;
+            updateSummary(0);
+            return;
+          }
+
+          cartItemsContainer.innerHTML = cart
+            .map(
+              (item) => `
+              <div class="row align-items-center py-3 cart-item-row" data-id="${
+                item.id
+              }">
+                <div class="col-3 col-md-2">
+                  <img src="${item.image}" alt="${
+                item.name
+              }" class="product-image">
+                </div>
+                <div class="col-9 col-md-4">
+                  <h6 class="mb-1">${item.name}</h6>
+                  <p class="text-muted small mb-0">Preço: R$ ${item.price
+                    .toFixed(2)
+                    .replace(".", ",")}</p>
+                </div>
+                <div class="col-6 col-md-3 mt-3 mt-md-0">
+                  <div class="d-flex align-items-center quantity-controls">
+                    <button class="quantity-decrease">-</button>
+                    <span class="mx-2">${item.quantity}</span>
+                    <button class="quantity-increase">+</button>
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 text-md-end fw-bold mt-3 mt-md-0">
+                  <span>R$ ${(item.price * item.quantity)
+                    .toFixed(2)
+                    .replace(".", ",")}</span>
+                </div>
+                <div class="col-2 col-md-1 text-end mt-3 mt-md-0">
+                  <button class="remove-btn" title="Remover item"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </div>
+            `
+            )
+            .join("");
+
+          const total = cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0
+          );
+          updateSummary(total);
+        }
+
+        function updateSummary(total) {
+          const formattedTotal = `R$ ${total.toFixed(2).replace(".", ",")}`;
+          summarySubtotal.textContent = formattedTotal;
+          summaryTotal.textContent = formattedTotal;
+        }
+
+        // Listener para ações na página do carrinho (aumentar, diminuir, remover)
+        cartItemsContainer.addEventListener("click", (e) => {
+          const cartItemRow = e.target.closest(".cart-item-row");
+          if (!cartItemRow) return;
+
+          const itemId = cartItemRow.dataset.id;
+          let cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+          const itemIndex = cart.findIndex((item) => item.id === itemId);
+
+          if (itemIndex === -1) return;
+
+          if (
+            e.target.classList.contains("quantity-increase") ||
+            e.target.parentElement.classList.contains("quantity-increase")
+          ) {
+            cart[itemIndex].quantity++;
+          } else if (
+            e.target.classList.contains("quantity-decrease") ||
+            e.target.parentElement.classList.contains("quantity-decrease")
+          ) {
+            cart[itemIndex].quantity--;
+          } else if (
+            e.target.classList.contains("remove-btn") ||
+            e.target.parentElement.classList.contains("remove-btn")
+          ) {
+            cart[itemIndex].quantity = 0; // Marcar para remoção
+          }
+
+          if (cart[itemIndex].quantity <= 0) {
+            cart.splice(itemIndex, 1); // Remove o item do array
+          }
+
+          localStorage.setItem("shoppingCart", JSON.stringify(cart));
+          renderCartPage(); // Re-renderiza a página
+          window.dispatchEvent(new Event("storage")); // Dispara um evento para que o main.js atualize o ícone do header
+        });
+
+        // Renderiza o carrinho ao carregar a página
+        renderCartPage();
+
+        // Ouve por mudanças no storage para manter a página sincronizada
+        window.addEventListener("storage", renderCartPage);
+      });
+    </script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buyNowButton = document.querySelector(".buy-now-btn");
+
+        if (buyNowButton) {
+          buyNowButton.addEventListener("click", async () => {
+            // 1. Coleta os dados do produto da página
+            // O script procura o primeiro elemento com um atributo data-id dentro da seção de produto.
+            const productContainer = document.querySelector(
+              ".product-section [data-id]"
+            );
+
+            // VERIFICAÇÃO CRÍTICA: Se o container não for encontrado ou os dados estiverem faltando, o script falhará.
+            if (
+              !productContainer ||
+              !productContainer.dataset.name ||
+              !productContainer.dataset.price
+            ) {
+              console.error("Dados do produto faltando no HTML.");
+              alert("Erro: Não foi possível carregar os dados do produto.");
+              return;
+            }
+
+            const productName = productContainer.dataset.name;
+            const productPrice = parseFloat(productContainer.dataset.price);
+
+            buyNowButton.disabled = true;
+            buyNowButton.innerHTML =
+              '<i class="fas fa-spinner fa-spin me-2"></i>Aguarde...';
+
+            // 2. Monta a preferência de pagamento
+            const preference = {
+              items: [
+                {
+                  title: productName,
+                  quantity: 1,
+                  currency_id: "BRL",
+                  unit_price: productPrice,
+                },
+              ],
+              // É recomendado ajustar essas URLs para lidar corretamente com a resposta do Mercado Pago
+              back_urls: {
+                success: window.location.href,
+                failure: window.location.href,
+                pending: window.location.href,
+              },
+              auto_return: "approved",
+            };
+
+            try {
+              // SUBSTITUA 'YOUR_PUBLIC_KEY' E 'YOUR_ACCESS_TOKEN' PELAS SUAS CREDENCIAIS
+              const mp = new MercadoPago("YOUR_PUBLIC_KEY");
+
+              // 3. Cria a preferência no Mercado Pago (INSEGURO NO FRONTEND)
+              const response = await fetch(
+                "https://api.mercadopago.com/checkout/preferences",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer YOUR_ACCESS_TOKEN",
+                  },
+                  body: JSON.stringify(preference),
+                }
+              );
+
+              const data = await response.json();
+
+              // 4. Redireciona
+              window.location.href = data.init_point;
+            } catch (error) {
+              console.error("Erro ao criar preferência de pagamento:", error);
+              alert("Ocorreu um erro ao iniciar o pagamento. Tente novamente.");
+              buyNowButton.disabled = false;
+              buyNowButton.innerHTML =
+                '<i class="fas fa-bolt me-2"></i> Finalizar Comprar ';
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
