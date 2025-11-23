@@ -302,12 +302,9 @@
             loginMessage.classList.add("text-green-500");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("loggedInUserEmail", email);
-            
-            // --- ALTERADO AQUI PARA VOCÊ ---
             setTimeout(() => {
               window.location.href = "catalogo_de_produtos.html";
             }, 1000);
-            
           } else {
             loginMessage.textContent = "E-mail ou senha incorretos. Tente novamente ou cadastre-se.";
             loginMessage.classList.remove("text-green-500");
@@ -408,9 +405,7 @@
           localStorage.setItem("loggedInUserEmail", user.email);
 
           alert(`Bem-vindo, ${user.displayName}!`);
-          
-          // --- ALTERADO AQUI PARA VOCÊ ---
-          window.location.href = "catálogo_de_produto.html"; 
+          window.location.href = "catalogo_de_produtos.html"; 
 
         } catch (error) {
           console.error(error);
