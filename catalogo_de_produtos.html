@@ -1948,6 +1948,50 @@
     </div>
 
     <script src="main.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("catalog-search-input");
+        const productGrid = document.querySelector(".product-grid");
+        // Seleciona tanto os cards de produto quanto os títulos de categoria
+        const allItems = productGrid.querySelectorAll(".product-card, .category-title");
+        const categoryTitles = productGrid.querySelectorAll(".category-title");
+
+        if (searchInput) {
+          searchInput.addEventListener("input", () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleProductsInCategory = false;
+
+            // Primeiro, filtra os produtos
+            productGrid.querySelectorAll(".product-card").forEach((card) => {
+              const productName = (card.dataset.name || "").toLowerCase();
+
+              if (productName.includes(searchTerm)) {
+                card.style.display = "block"; // Mostra o card
+              } else {
+                card.style.display = "none"; // Esconde o card
+              }
+            });
+
+            // Depois, ajusta a visibilidade dos títulos de categoria
+            categoryTitles.forEach(title => {
+                let nextElement = title.nextElementSibling;
+                let hasVisibleProducts = false;
+
+                // Verifica os elementos seguintes até encontrar o próximo título ou o fim da lista
+                while(nextElement && !nextElement.classList.contains('category-title')) {
+                    if (nextElement.classList.contains('product-card') && nextElement.style.display !== 'none') {
+                        hasVisibleProducts = true;
+                        break; // Encontrou um produto visível, pode parar de verificar para esta categoria
+                    }
+                    nextElement = nextElement.nextElementSibling;
+                }
+                
+                title.style.display = hasVisibleProducts ? 'block' : 'none';
+            });
+          });
+        }
+      });
+    </script>
   </div>
   </body>
 </html>
