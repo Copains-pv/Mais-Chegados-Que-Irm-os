@@ -28,7 +28,6 @@
       .form-container.active {
         display: block;
       }
-      /* Estilo para garantir a cor da mensagem não seja sobrescrita */
       .message-success {
         color: #10b981; /* green-500 */
       }
@@ -251,41 +250,41 @@
     </div>
 
     <script>
-      // Uso de localStorage para simular o banco de dados e a sessão do usuário.
-      // Atende aos requisitos: Cadastro único por email, redirecionamento e persistência.
+      // SCRIPT DE LÓGICA DO USUÁRIO
+      // Gerencia Navegação, Cadastro Único e Redirecionamento
 
       document.addEventListener("DOMContentLoaded", () => {
-        // --- VERIFICAÇÃO DE PERSISTÊNCIA ---
-        // Se o usuário já estiver logado, redireciona imediatamente, impedindo acesso à tela de login.
-        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-        if (isLoggedIn) {
-             window.location.href = "catalogo_de_produtos.html";
-             return; // Interrompe a execução do restante se já redirecionou
-        }
+        // --- 1. VERIFICAÇÃO DE PERSISTÊNCIA ---
+        // Se o usuário já estiver logado, redireciona imediatamente para o catálogo
+        const checkLoginStatus = () => {
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+          if (isLoggedIn === "true") {
+            window.location.href = "catalogo_de_produtos.html";
+          }
+        };
+        checkLoginStatus(); // Executa ao carregar a página
 
+        // --- Elementos do DOM ---
         const showLoginBtn = document.getElementById("show-login");
         const showRegisterBtn = document.getElementById("show-register");
         const loginForm = document.getElementById("login-form");
         const registerForm = document.getElementById("register-form");
-        const forgotPasswordForm = document.getElementById(
-          "forgot-password-form"
-        );
-        const showForgotPasswordBtn = document.getElementById(
-          "show-forgot-password"
-        );
+        const forgotPasswordForm = document.getElementById("forgot-password-form");
+        const showForgotPasswordBtn = document.getElementById("show-forgot-password");
         const backToLoginBtn = document.getElementById("back-to-login");
 
         const loginMessage = document.getElementById("login-message");
         const registerMessage = document.getElementById("register-message");
         const forgotMessage = document.getElementById("forgot-message");
 
+        // --- Funções de Navegação (Abas) ---
         function showForm(formToShow) {
           [loginForm, registerForm, forgotPasswordForm].forEach((form) =>
             form.classList.remove("active")
           );
           formToShow.classList.add("active");
 
-          // Limpa mensagens e classes de cor ao trocar de aba
+          // Limpa mensagens
           loginMessage.textContent = "";
           registerMessage.textContent = "";
           forgotMessage.textContent = "";
@@ -303,12 +302,11 @@
           showRegisterBtn.classList.toggle("text-red-500", isRegister);
           showRegisterBtn.classList.toggle("text-gray-500", !isRegister);
 
-          // Esconde as abas no formulário de recuperação
+          // Esconde abas se for recuperação de senha
           showLoginBtn.parentElement.style.display =
             formToShow === forgotPasswordForm ? "none" : "flex";
         }
 
-        // Lógica para alternar entre os formulários
         showLoginBtn.addEventListener("click", () => showForm(loginForm));
         showRegisterBtn.addEventListener("click", () => showForm(registerForm));
         showForgotPasswordBtn.addEventListener("click", (e) => {
@@ -320,13 +318,12 @@
           showForm(loginForm);
         });
 
-        // --- LÓGICA DE LOGIN ---
+        // --- 2. LÓGICA DE LOGIN ---
         document.getElementById("login").addEventListener("submit", (e) => {
           e.preventDefault();
           loginMessage.textContent = "";
 
-          const registeredUsers =
-            JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
           const email = e.target.email.value;
           const password = e.target.password.value;
 
@@ -335,75 +332,64 @@
           );
 
           if (foundUser) {
-            loginMessage.textContent =
-              "Login realizado com sucesso! Redirecionando...";
+            loginMessage.textContent = "Login realizado com sucesso! Redirecionando...";
             loginMessage.classList.remove("text-red-500");
             loginMessage.classList.add("text-green-500");
 
-            // Define a sessão como ativa
+            // Define status de logado para persistência
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("loggedInUserEmail", email);
 
-            // Redireciona para o catálogo
+            // Redirecionamento para a página de produtos
             setTimeout(() => {
               window.location.href = "catalogo_de_produtos.html";
-            }, 1000);
+            }, 800);
           } else {
-            loginMessage.textContent =
-              "E-mail ou senha incorretos. Tente novamente ou cadastre-se.";
+            loginMessage.textContent = "E-mail ou senha incorretos. Tente novamente.";
             loginMessage.classList.remove("text-green-500");
             loginMessage.classList.add("text-red-500");
           }
         });
 
-        // --- LÓGICA DE CADASTRO ---
+        // --- 3. LÓGICA DE CADASTRO ---
         document.getElementById("register").addEventListener("submit", (e) => {
           e.preventDefault();
           registerMessage.textContent = "";
 
-          const registeredUsers =
-            JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
           const name = e.target.name.value;
           const email = e.target.email.value;
           const password = e.target.password.value;
 
-          // REGRA: O usuário só pode fazer cadastro uma só vez com o mesmo e-mail
+          // Regra: E-mail único
           if (registeredUsers.some((user) => user.email === email)) {
-            registerMessage.textContent =
-              "Este e-mail já está cadastrado. Por favor, faça o login.";
+            registerMessage.textContent = "Este e-mail já está cadastrado. Faça login.";
             registerMessage.classList.remove("text-green-500");
             registerMessage.classList.add("text-red-500");
             return;
           }
 
+          // Salva novo usuário
           registeredUsers.push({ name, email, password });
-          localStorage.setItem(
-            "registeredUsers",
-            JSON.stringify(registeredUsers)
-          );
+          localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
 
-          // REGRA: Ao finalizar o cadastro deve ser direcionado automaticamente para a aba de login.
-          alert("Cadastro realizado com sucesso! Você será redirecionado para o Login.");
+          // Feedback visual
+          alert("Cadastro realizado com sucesso! Você será redirecionado para o login.");
           
-          e.target.reset(); // Limpa o formulário
-          
-          // Troca para a aba de login
+          // Limpa formulário
+          e.target.reset();
+
+          // Regra: Direcionar automaticamente para a aba de Login
           showForm(loginForm);
           
-          // Preenche o e-mail no login para facilitar
-          document.getElementById('login-email').value = email;
-          
-          // Exibe mensagem de sucesso na aba de login
-          const loginMsg = document.getElementById("login-message");
-          loginMsg.textContent = "Cadastro efetuado! Digite sua senha para entrar.";
-          loginMsg.classList.add("text-green-500");
-          loginMsg.classList.remove("text-red-500");
+          // UX Extra: Preenche o e-mail no login para o usuário
+          document.getElementById("login-email").value = email;
+          loginMessage.textContent = "Faça login com sua nova conta.";
+          loginMessage.classList.add("text-green-500");
         });
 
-        // --- LÓGICA DE RECUPERAÇÃO DE SENHA ---
-        document
-          .getElementById("forgot-password")
-          .addEventListener("submit", async (e) => {
+        // --- 4. LÓGICA DE RECUPERAÇÃO DE SENHA (SIMULAÇÃO) ---
+        document.getElementById("forgot-password").addEventListener("submit", (e) => {
             e.preventDefault();
             forgotMessage.textContent = "";
             forgotMessage.classList.remove("message-success", "message-error");
@@ -416,40 +402,22 @@
             submitButton.textContent = "Enviando...";
 
             setTimeout(() => {
-              const registeredUsers =
-                JSON.parse(localStorage.getItem("registeredUsers")) || [];
-              const userExists = registeredUsers.some(
-                (user) => user.email === emailToRecover
-              );
-              let result;
-
+              const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+              const userExists = registeredUsers.some((user) => user.email === emailToRecover);
+              
               if (userExists) {
-                result = {
-                  success: true,
-                  message: `Link de redefinição enviado para: ${emailToRecover}. (Simulado)`,
-                };
-              } else {
-                result = {
-                  success: false,
-                  message: `E-mail "${emailToRecover}" não encontrado em nosso sistema.`,
-                };
-              }
-
-              if (result.success) {
-                forgotMessage.textContent = result.message;
+                forgotMessage.textContent = `Link enviado para: ${emailToRecover}.`;
                 forgotMessage.classList.add("message-success");
-                forgotMessage.classList.remove("message-error");
               } else {
-                forgotMessage.textContent = result.message;
+                forgotMessage.textContent = `E-mail não encontrado.`;
                 forgotMessage.classList.add("message-error");
-                forgotMessage.classList.remove("message-success");
               }
 
               submitButton.disabled = false;
               submitButton.textContent = "Enviar E-mail de Recuperação";
               form.reset();
-            }, 1500);
-          });
+            }, 1000);
+        });
       });
     </script>
   </body>
