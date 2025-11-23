@@ -10,7 +10,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -119,8 +119,6 @@
               <i class="fab fa-google mr-2"></i>
               Entrar com Google
             </button>
-          
-            
           </div>
           <!-- Mensagens de erro/sucesso para o login -->
           <div id="login-message" class="mt-4 text-center font-semibold"></div>
@@ -199,7 +197,6 @@
               <i class="fab fa-google mr-2"></i>
               Cadastrar com Google
             </button>
-            
           </div>
           <!-- Mensagens de erro/sucesso para o cadastro -->
           <div
@@ -254,10 +251,18 @@
     </div>
 
     <script>
-      // Uso de localStorage para simular um banco de dados de usuários persistente.
-      // Em uma aplicação real, seria usado um serviço de backend como Firebase Firestore.
+      // Uso de localStorage para simular o banco de dados e a sessão do usuário.
+      // Atende aos requisitos: Cadastro único por email, redirecionamento e persistência.
 
       document.addEventListener("DOMContentLoaded", () => {
+        // --- VERIFICAÇÃO DE PERSISTÊNCIA ---
+        // Se o usuário já estiver logado, redireciona imediatamente, impedindo acesso à tela de login.
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        if (isLoggedIn) {
+             window.location.href = "catalogo_de_produtos.html";
+             return; // Interrompe a execução do restante se já redirecionou
+        }
+
         const showLoginBtn = document.getElementById("show-login");
         const showRegisterBtn = document.getElementById("show-register");
         const loginForm = document.getElementById("login-form");
@@ -315,7 +320,7 @@
           showForm(loginForm);
         });
 
-        // --- LÓGICA DE LOGIN COM VALIDAÇÃO (mantida) ---
+        // --- LÓGICA DE LOGIN ---
         document.getElementById("login").addEventListener("submit", (e) => {
           e.preventDefault();
           loginMessage.textContent = "";
@@ -335,12 +340,13 @@
             loginMessage.classList.remove("text-red-500");
             loginMessage.classList.add("text-green-500");
 
+            // Define a sessão como ativa
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("loggedInUserEmail", email);
 
+            // Redireciona para o catálogo
             setTimeout(() => {
-              const redirectUrl = "area_do_usuario.html";
-              window.location.href = redirectUrl;
+              window.location.href = "catalogo_de_produtos.html";
             }, 1000);
           } else {
             loginMessage.textContent =
@@ -350,7 +356,7 @@
           }
         });
 
-        // --- LÓGICA DE CADASTRO (mantida) ---
+        // --- LÓGICA DE CADASTRO ---
         document.getElementById("register").addEventListener("submit", (e) => {
           e.preventDefault();
           registerMessage.textContent = "";
@@ -361,9 +367,10 @@
           const email = e.target.email.value;
           const password = e.target.password.value;
 
+          // REGRA: O usuário só pode fazer cadastro uma só vez com o mesmo e-mail
           if (registeredUsers.some((user) => user.email === email)) {
             registerMessage.textContent =
-              "Este e-mail já está cadastrado. Tente fazer o login.";
+              "Este e-mail já está cadastrado. Por favor, faça o login.";
             registerMessage.classList.remove("text-green-500");
             registerMessage.classList.add("text-red-500");
             return;
@@ -375,33 +382,40 @@
             JSON.stringify(registeredUsers)
           );
 
-          registerMessage.textContent =
-            "Cadastro realizado com sucesso! Você já pode fazer o login.";
-          registerMessage.classList.remove("text-red-500");
-          registerMessage.classList.add("text-green-500");
-
-          e.target.reset();
+          // REGRA: Ao finalizar o cadastro deve ser direcionado automaticamente para a aba de login.
+          alert("Cadastro realizado com sucesso! Você será redirecionado para o Login.");
+          
+          e.target.reset(); // Limpa o formulário
+          
+          // Troca para a aba de login
+          showForm(loginForm);
+          
+          // Preenche o e-mail no login para facilitar
+          document.getElementById('login-email').value = email;
+          
+          // Exibe mensagem de sucesso na aba de login
+          const loginMsg = document.getElementById("login-message");
+          loginMsg.textContent = "Cadastro efetuado! Digite sua senha para entrar.";
+          loginMsg.classList.add("text-green-500");
+          loginMsg.classList.remove("text-red-500");
         });
 
-        // --- LÓGICA DE RECUPERAÇÃO DE SENHA (SIMULAÇÃO UX) ---
+        // --- LÓGICA DE RECUPERAÇÃO DE SENHA ---
         document
           .getElementById("forgot-password")
           .addEventListener("submit", async (e) => {
             e.preventDefault();
-            forgotMessage.textContent = ""; // Limpa mensagem anterior
+            forgotMessage.textContent = "";
             forgotMessage.classList.remove("message-success", "message-error");
 
             const form = e.target;
             const emailToRecover = form.elements["forgot-email"].value;
             const submitButton = form.querySelector('button[type="submit"]');
 
-            // 1. Início do Estado de Carregamento (UX Responsiva)
             submitButton.disabled = true;
             submitButton.textContent = "Enviando...";
 
-            // Simula o tempo de latência de uma requisição de rede (1.5 segundos)
             setTimeout(() => {
-              // Simula a verificação do backend (usando localStorage como 'DB')
               const registeredUsers =
                 JSON.parse(localStorage.getItem("registeredUsers")) || [];
               const userExists = registeredUsers.some(
@@ -410,20 +424,17 @@
               let result;
 
               if (userExists) {
-                // 2. Simulação de Sucesso
                 result = {
                   success: true,
                   message: `Link de redefinição enviado para: ${emailToRecover}. (Simulado)`,
                 };
               } else {
-                // 3. Simulação de Erro (Email não encontrado)
                 result = {
                   success: false,
                   message: `E-mail "${emailToRecover}" não encontrado em nosso sistema.`,
                 };
               }
 
-              // Aplica o feedback visual
               if (result.success) {
                 forgotMessage.textContent = result.message;
                 forgotMessage.classList.add("message-success");
@@ -434,61 +445,12 @@
                 forgotMessage.classList.remove("message-success");
               }
 
-              // 4. Fim do Estado de Carregamento (UX Responsiva)
               submitButton.disabled = false;
               submitButton.textContent = "Enviar E-mail de Recuperação";
               form.reset();
-            }, 1500); // Fim do setTimeout
+            }, 1500);
           });
       });
-    </script>
-    <script type="module">
-        
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDziPLMJCBlAQ_AMfljLWNWh9Xu9bjl9qU",
-  authDomain: "copains-5d19c.firebaseapp.com",
-  projectId: "copains-5d19c",
-  storageBucket: "copains-5d19c.firebasestorage.app",
-  messagingSenderId: "970103327588",
-  appId: "1:970103327588:web:6c1349567bef60dd70c871",
-  measurementId: "G-1718MSW05T"
-};
-
-
-
-        // 3. Iniciar o Firebase no site
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-
-        // 4. Função que roda quando clica no botão
-        const botao = document.getElementById('btn-google');
-        
-        botao.addEventListener('click', () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    // SUCESSO!
-                    const user = result.user;
-                    console.log("Usuário logado:", user);
-                    alert("Bem-vindo, " + user.displayName + "!");
-                    
-                    // Aqui você redirecionaria o usuário para a página principal
-                    // window.location.href = "home.html";
-                })
-                .catch((error) => {
-                    // ERRO
-                    console.error("Erro ao logar:", error);
-                    alert("Ops! Algo deu errado: " + error.message);
-                });
-        });
     </script>
   </body>
 </html>
