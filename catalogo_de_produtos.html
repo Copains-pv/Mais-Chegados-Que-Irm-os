@@ -17,7 +17,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -293,8 +293,9 @@
         margin-bottom: 1rem;
       }
 
+      /* Botão do WhatsApp (Antigo Add to Cart) */
       .add-to-cart-btn {
-        background-color: var(--dark-color);
+        background-color: #25D366; /* Verde WhatsApp */
         color: var(--light-color);
         padding: 0.75rem 1.5rem;
         border: none;
@@ -307,7 +308,7 @@
       }
 
       .add-to-cart-btn:hover {
-        background-color: var(--primary-color);
+        background-color: #128C7E; /* Verde WhatsApp mais escuro */
       }
 
       .buy-now-btn {
@@ -688,7 +689,7 @@
         </div>
 
         <div class="product-grid">
-         
+          
           <!-- Título da Categoria Hidratantes -->
           <h3 class="category-title">Hidratantes</h3>
           
@@ -706,11 +707,11 @@
               aria-label="Adicionar aos Favoritos"
               ><i class="far fa-heart"></i
             ></a>
-            <img src="hidratante 212 vip rose.jpg" alt="Imagem do Produto 2" />
+            <img src="hidratante 212 vip rose.jpg" alt="Imagem do Produto 2" onerror="this.src='https://placehold.co/300x300?text=Produto+2'" />
             <div class="product-info">
               <h3 class="product-name">Hidratante 212 Vip Rose</h3>
               <p class="product-price">R$ 75,50</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank">WhatsApp </a>
               <a
                 href="hidratante_212_vip_rose_are_tou_on.html"
                 class="buy-now-btn"
@@ -719,7 +720,7 @@
             </div>
           </div>
 
-           
+            
           <!-- Produto 02 Hidratante Vitória Secret-->
           <div
             class="product-card"
@@ -737,11 +738,12 @@
             <img
               src="Victoria's Secret Velvet Petals.jpg"
               alt="Imagem do Produto 3"
+              onerror="this.src='https://placehold.co/300x300?text=Produto+3'"
             />
             <div class="product-info">
               <h3 class="product-name">Hidratante Vitoria Secret</h3>
               <p class="product-price">R$ 70,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
+              <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank">WhatsApp </a>
               <a
                 href="Hidratante_Vitória_Secret.html"
                 class="buy-now-btn"
@@ -749,1101 +751,1133 @@
               >
             </div>
           </div>
-         
-          
-          <!-- Título da Categoria Perfumes -->
-          <h3 class="category-title">Perfumes</h3>
-          <!-- Produto 03 Good girl contra tipo -->
-          <div
-            class="product-card"
-            data-id="prod-cat-001"
-            data-name="Perfume Good Girl Carolina Errera"
-            data-price="524.50"
-            data-image="perfume good girl contra tipo.jpg"
+        <
+    <!-- Título da Categoria Perfumes -->
+    <h3 class="category-title">Perfumes</h3>
+    <div class="product-grid">
+      <!-- Produto 03 Good girl contra tipo -->
+      <div
+        class="product-card"
+        data-id="prod-cat-001"
+        data-name="Perfume Good Girl Carolina Errera"
+        data-price="524.50"
+        data-image="perfume good girl contra tipo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume good girl contra tipo.jpg"
+          alt="Imagem do Produto 1"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Good Girl Carolina Errera</h3>
+          <p class="product-price">R$ 524,50</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
           >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume good girl contra tipo.jpg"
-              alt="Imagem do Produto 1"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Good Girl Carolina Errera</h3>
-              <p class="product-price">R$ 524,50</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="perfumeGood_Girl_Carolina_Herr.html"
-                class="buy-now-btn"
-                >Comprar</a
-              >
-            </div>
-          </div>
+          <a
+            href="perfumeGood_Girl_Carolina_Herr.html"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
 
+      <!-- Produto 04 -perfume Olympea Legitimo-->
+      <div
+        class="product-card"
+        data-id="prod-new-009"
+        data-name="Olympea"
+        data-price="525.00"
+        data-image="Olympia paco rabane legitimo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="Olympia paco rabane legitimo.jpg" alt="Perfume Olympea" />
+        <div class="product-info">
+          <h3 class="product-name">Olympea</h3>
+          <p class="product-price">R$ 525,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="Perfume_olimpea_paco_rabane.html"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
 
-          <!-- Produto 04 -perfume Olympea Legitimo-->
-          <div
-            class="product-card"
-            data-id="prod-new-009"
-            data-name="Olympea"
-            data-price="525.00"
-            data-image="Olympia paco rabane legitimo.jpg"
+      <!-- Produto ,05 - Ferrari Black -->
+      <div
+        class="product-card"
+        data-id="prod-new-012"
+        data-name="Ferrari Black"
+        data-price="60.00"
+        data-image="perfume ferrare black contratipo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume ferrare black contratipo.jpg"
+          alt="Ferrari Black"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Ferrari Black</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
           >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Olympia paco rabane legitimo.jpg" alt="Perfume Olympea" />
-            <div class="product-info">
-              <h3 class="product-name">Olympea</h3>
-              <p class="product-price">R$ 525,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="Perfume_olimpea_paco_rabane.html"
-                class="buy-now-btn"
-                >Comprar</a
-              >
-            </div>
-          </div>
-         
-          
-          <!-- Produto ,05 - Ferrari Black -->
-          <div
-            class="product-card"
-            data-id="prod-new-012"
-            data-name="Ferrari Black"
-            data-price="60.00"
-            data-image="perfume ferrare black contratipo.jpg"
+          <a href="Perfume_Ferrari_Black.html" class="buy-now-btn nav-link"
+            >Comprar</a
           >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume ferrare black contratipo.jpg"
-              alt="Ferrari Black"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Ferrari Black</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Perfume_Ferrari_Black.html" class="buy-now-btn nav-link"
-                >Comprar</a
-              >
-            </div>
-          </div>
-          <!-- Produto 06 - AB THE SECRET -->
-          <div
-            class="product-card"
-            data-id="prod-new-013"
-            data-name="AB THE SECRET"
-            data-price="250.00"
-            data-image="perfume Antonio Bandeiras the secret legitimo.jpg"
+        </div>
+      </div>
+      <!-- Produto 06 - AB THE SECRET -->
+      <div
+        class="product-card"
+        data-id="prod-new-013"
+        data-name="AB THE SECRET"
+        data-price="250.00"
+        data-image="perfume Antonio Bandeiras the secret legitimo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume Antonio Bandeiras the secret legitimo.jpg"
+          alt="AB THE SECRET"
+        />
+        <div class="product-info">
+          <h3 class="product-name">AB THE SECRET</h3>
+          <p class="product-price">R$ 250,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
           >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume Antonio Bandeiras the secret legitimo.jpg"
-              alt="AB THE SECRET"
-            />
-            <div class="product-info">
-              <h3 class="product-name">AB THE SECRET</h3>
-              <p class="product-price">R$ 250,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Perfume_AB_The_Secret.html" class="buy-now-btn nav-link"
-                >Comprar</a
-              >
-            </div>
-          </div>
+          <a href="Perfume_AB_THE_SECRET.html" class="buy-now-btn nav-link"
+            >Comprar</a
+          >
+        </div>
+      </div>
 
+      <!-- Produto 07 one milli parfun -->
+      <div
+        class="product-card"
+        data-id="prod-cat-004"
+        data-name="Perfume One Million Parfum legitimo"
+        data-price="524.50"
+        data-image="perfume 1 million parfum legitimo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume 1 million parfum legitimo.jpg"
+          alt="Imagem do Produto 4"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Perfume One Million Parfum legitimo</h3>
+          <p class="product-price">R$ 524,50</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a href="one_milli_parfum.html" class="buy-now-btn nav-link"
+            >Comprar</a
+          >
+        </div>
+      </div>
 
-          <!-- Produto 07 one milli parfun -->
-          <div
-            class="product-card"
-            data-id="prod-cat-004"
-            data-name="Perfume One Million Parfum legitimo"
-            data-price="524.50"
-            data-image="perfume 1 million parfum legitimo.jpg"
+      <!-- Produto 08 - Perfume Bad Boy -->
+      <div
+        class="product-card"
+        data-id="prod-new-017"
+        data-name="Perfume Bad Boy"
+        data-price="60.00"
+        data-image="Perfume Bad Boy Carolina Errera.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="Perfume Bad Boy Carolina Errera.jpg" alt="Bad Boy" />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Bad Boy</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
           >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume 1 million parfum legitimo.jpg"
-              alt="Imagem do Produto 4"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume One Million Parfum legitimo</h3>
-              <p class="product-price">R$ 524,50</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="one_milli_parfum.html" class="buy-now-btn nav-link"
-                >Comprar</a
-              >
-            </div>
-          </div>
+          <a href="Perfume Bad Boy Carolina Errera.html" class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 09 -perfume yara latafa -->
+      <div
+        class="product-card"
+        data-id="prod-new-018"
+        data-name="Perfume Yara latafa"
+        data-price="60.00"
+        data-image="Perfume Yare lattafa.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="perfume yare latafa.jpg" alt="Perfume Yara lattafa" />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Yara lattafa</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/perfume Yara Lattafa 50ml.html?serverWindowId=0e482ef1-fe8e-438b-83f7-962d569f71bd"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 10 - Perfume Invictus Parfum -->
+      <div
+        class="product-card"
+        data-id="prod-new-019"
+        data-name="Perfume invictus parfum"
+        data-price="70.00"
+        data-image="Perfume invictus parfum.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="Perfume invictus parfum.jpg"
+          alt="Perfume Invictus Parfum"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Invictus Parfum</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/Perfume Invictus Parfum.html?serverWindowId=675cc478-6259-4072-8414-eab7c7bf77e5"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 11 - 212 Men Vip Wins-->
+      <div
+        class="product-card"
+        data-id="prod-new-020"
+        data-name="Perfume 212 Mem vip wins"
+        data-price="60.00"
+        data-image="Perfume 212 Mem vip wins.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="Perfume 212 Mem vip wins.jpg" alt="212 Men" />
+        <div class="product-info">
+          <h3 class="product-name">Perfume 212 Vip Men wins</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/Perfume 212 Men VIP Wins Contra Tipo.html?serverWindowId=b2cbe4a9-022d-482d-8012-684fbfe7208e"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 12 - Sauvage Dior -->
+      <div
+        class="product-card"
+        data-id="prod-sauvage-dior"
+        data-name="Perfume Sauvage Dior"
+        data-price="60.00"
+        data-image="perfume sauvage contra tipo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume sauvage contra tipo.jpg"
+          alt="Perfume Sauvage Dior"
+          onerror="this.onerror=null;this.src='https://placehold.co/400x300/2c3e50/ffffff?text=Sauvage';"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Sauvage Dior</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a href="perfume Sauvage Dior 50ml.html" class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 13 perfume Lattafa Fakhar                 -->
+      <div
+        class="product-card"
+        data-id="prod-lattafa-fakhar"
+        data-name="Perfume Lattafa Fakhar 50ml"
+        data-price="60.00"
+        data-image="Perfume Latafa Fakhar.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="Perfume Latafa Fakhar.jpg" alt="Imagem do Produto 2" />
+        <div class="product-info">
+          <h3 class="product-name">
+            Perfume Lattafa Fakhar Contra Tipo 50ml
+          </h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/perfume Lattafa Fakhar 50ml.html?serverWindowId=aaac4387-9ce2-4068-a917-c2a555d028f5"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 14 Perfume Dolce & Gabbana Pour  -->
+      <div
+        class="product-card"
+        data-id="prod-dolce-gabbana"
+        data-name="Perfume Dolce & Gabbana Pour"
+        data-price="60.00"
+        data-image="Dolce & Gabbana.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img src="Dolce & Gabbana.jpg" alt="Imagem do Produto 2" />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Dolce & Gabbana Pour</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/perfume Dolce & Gabbana Pour ... .html?serverWindowId=8dd4693a-64b0-4a19-8e4c-006de536e00f"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 15   Perfume Azzaro Pour Homme Wante Contra Tipo 50ml               -->
+      <div
+        class="product-card"
+        data-id="prod-azzaro-pour-homme"
+        data-name="Perfume Azzaro Pour Homme Wante Contra Tipo 50ml"
+        data-price="60.00"
+        data-image="Perfume Azzaro POUR HOMME contra tipo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="Perfume Azzaro POUR HOMME contra tipo.jpg"
+          alt="Imagem do Produto 2"
+        />
+        <div class="product-info">
+          <h3 class="product-name">
+            Perfume Azzaro Pour Homme Wante Contra Tipo 50ml
+          </h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/perfume Azzaro Wanted 50ml .html?serverWindowId=b68d63aa-c1ce-4c17-9af9-236132b017b8"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 16 perfume scuderia ferrare contratipo 50ml               -->
+      <div
+        class="product-card"
+        data-id="prod-scuderia-ferrari"
+        data-name="Perfume Scuderia Ferrare Contra Tipo 50ml"
+        data-price="535.50"
+        data-image="perfume scuderia ferrare contratipo.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume scuderia ferrare contratipo.jpg"
+          alt="Imagem do Produto 2"
+        />
+        <div class="product-info">
+          <h3 class="product-name">
+            Perfume Scuderia Ferrare Contra Tipo 50ml
+          </h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/Perfume Azzaro Pour Homme Wante Contra Tipo 50ml.html?serverWindowId=b2cbe4a9-022d-482d-8012-684fbfe7208e"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
+      <!-- Produto 17 Perfume Scandal Jean paul          -->
+      <div
+        class="product-card"
+        data-id="prod-scandal-jean-paul"
+        data-name="Perfume Scandal Jean Paul"
+        data-price="60.00"
+        data-image="perfume Scandal Jean Paul.jpg"
+      >
+        <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos"
+          ><i class="far fa-heart"></i
+        ></a>
+        <img
+          src="perfume Scandal Jean Paul.jpg"
+          alt="Imagem do Produto 2"
+        />
+        <div class="product-info">
+          <h3 class="product-name">Perfume Scandal Jean Paul</h3>
+          <p class="product-price">R$ 60,00</p>
+          <a
+            href="https://wa.me/552198092293"
+            class="add-to-cart-btn"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i> WhatsApp </a
+          >
+          <a
+            href="http://127.0.0.1:3000/scandal jeanspaul.html?serverWindowId=0e482ef1-fe8e-438b-83f7-962d569f71bd"
+            class="buy-now-btn"
+            >Comprar</a
+          >
+        </div>
+      </div>
 
-          <!-- Produto 08 - Perfume Bad Boy -->
-          <div
-            class="product-card"
-            data-id="prod-new-017"
-            data-name="Perfume Bad Boy"
-            data-price="60.00"
-            data-image="Perfume Bad Boy Carolina Errera.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Perfume Bad Boy Carolina Errera.jpg" alt="Bad Boy" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Bad Boy</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Perfume Bad Boy Carolina Errera.html" class="buy-now-btn"
-                >Comprar</a
-              
-              >
-            </div>
-          </div>
-          <!-- Produto 09 -perfume yara latafa -->
-          <div
-            class="product-card"
-            data-id="prod-new-018"
-            data-name="Perfume Yara latafa"
-            data-price="60.00"
-            data-image="Perfume Yare lattafa.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="perfume yare latafa.jpg" alt="Perfume Yara lattafa" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Yara lattafa</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="http://127.0.0.1:3000/perfume Yara Lattafa 50ml.html?serverWindowId=0e482ef1-fe8e-438b-83f7-962d569f71bd"
-                class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 10 - Perfume Invictus Parfum -->
-          <div
-            class="product-card"
-            data-id="prod-new-019"
-            data-name="Perfume invictus parfum"
-            data-price="70.00"
-            data-image="Perfume invictus parfum.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="Perfume invictus parfum.jpg"
-              alt="Perfume Invictus Parfum"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Invictus Parfum</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume Invictus Parfum.html?serverWindowId=675cc478-6259-4072-8414-eab7c7bf77e5" class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 11 - 212 Men Vip Wins-->
-          <div
-            class="product-card"
-            data-id="prod-new-020"
-            data-name="Perfume 212 Mem vip wins"
-            data-price="60.00"
-            data-image="Perfume 212 Mem vip wins.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Perfume 212 Mem vip wins.jpg" alt="212 Men" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume 212 Vip Men wins</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume 212 Men VIP Wins Contra Tipo.html?serverWindowId=b2cbe4a9-022d-482d-8012-684fbfe7208e" class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 12 - Sauvage Dior -->
-          <div
-            class="product-card"
-            data-id="prod-sauvage-dior"
-            data-name="Perfume Sauvage Dior"
-            data-price="60.00"
-            data-image="perfume sauvage contra tipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume sauvage contra tipo.jpg"
-              alt="Perfume Sauvage Dior"
-              onerror="this.onerror=null;this.src='https://placehold.co/400x300/2c3e50/ffffff?text=Sauvage';"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Sauvage Dior</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="perfume Sauvage Dior 50ml.html" class="buy-now-btn"
-                >Comprar</a
-             
-              >
-            </div>
-          </div>
-          <!-- Produto 13 perfume Lattafa Fakhar                 -->
-          <div
-            class="product-card"
-            data-id="prod-lattafa-fakhar"
-            data-name="Perfume Lattafa Fakhar 50ml"
-            data-price="60.00"
-            data-image="Perfume Latafa Fakhar.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Perfume Latafa Fakhar.jpg" alt="Imagem do Produto 2" />
-            <div class="product-info">
-              <h3 class="product-name">
-                Perfume Lattafa Fakhar Contra Tipo 50ml
-              </h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/perfume Lattafa Fakhar 50ml.html?serverWindowId=aaac4387-9ce2-4068-a917-c2a555d028f5" class="buy-now-btn"
-                >Comprar</a               
-              
-              >
-            </div>
-          </div>
-          <!-- Produto 14 Perfume Dolce & Gabbana Pour  -->
-          <div
-            class="product-card"
-            data-id="prod-dolce-gabbana"
-            data-name="Perfume Dolce & Gabbana Pour"
-            data-price="60.00"
-            data-image="Dolce & Gabbana.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Dolce & Gabbana.jpg" alt="Imagem do Produto 2" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Dolce & Gabbana Pour</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="http://127.0.0.1:3000/perfume Dolce & Gabbana Pour ... .html?serverWindowId=8dd4693a-64b0-4a19-8e4c-006de536e00f"
-                class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 15   Perfume Azzaro Pour Homme Wante Contra Tipo 50ml               -->
-          <div
-            class="product-card"
-            data-id="prod-azzaro-pour-homme"
-            data-name="Perfume Azzaro Pour Homme Wante Contra Tipo 50ml"
-            data-price="60.00"
-            data-image="Perfume Azzaro POUR HOMME contra tipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="Perfume Azzaro POUR HOMME contra tipo.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">
-                Perfume Azzaro Pour Homme Wante Contra Tipo 50ml
-              </h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="http://127.0.0.1:3000/perfume Azzaro Wanted 50ml .html?serverWindowId=b68d63aa-c1ce-4c17-9af9-236132b017b8"
-                class="buy-now-btn"
-                >Comprar</a>
-              
-            </div>
-          </div>
-          <!-- Produto 16 perfume scuderia ferrare contratipo 50ml               -->
-          <div
-            class="product-card"
-            data-id="prod-scuderia-ferrari"
-            data-name="Perfume Scuderia Ferrare Contra Tipo 50ml"
-            data-price="535.50"
-            data-image="perfume scuderia ferrare contratipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume scuderia ferrare contratipo.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">
-                Perfume Scuderia Ferrare Contra Tipo 50ml
-              </h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume Azzaro Pour Homme Wante Contra Tipo 50ml.html?serverWindowId=b2cbe4a9-022d-482d-8012-684fbfe7208e" class="buy-now-btn"
-                >Comprar</a>
-              
-            </div>
-          </div>
-          <!-- Produto 17 Perfume Scandal Jean paul          -->
-          <div
-            class="product-card"
-            data-id="prod-scandal-jean-paul"
-            data-name="Perfume Scandal Jean Paul"
-            data-price="60.00"
-            data-image="perfume Scandal Jean Paul.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume Scandal Jean Paul.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Scandal Jean Paul</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="http://127.0.0.1:3000/scandal jeanspaul.html?serverWindowId=0e482ef1-fe8e-438b-83f7-962d569f71bd"
-                class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 18 Perfume CK One Contra Tipo         -->
-          <div
-            class="product-card"
-            data-id="prod-ck-one-contratipo"
-            data-name="Perfume CK One Contra Tipo"
-            data-price="60.00"
-            data-image="perfume ck one contra tipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume ck one contra tipo.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume CK One Contra Tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume CK One Contratipo .html?serverWindowId=555a224d-7811-4ddf-a104-e85617de90e5" class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
+      <!-- Produto 18 Perfume CK One Contra Tipo         -->
+    <div
+      class="product-card"
+      data-id="prod-ck-one-contratipo"
+      data-name="Perfume CK One Contra Tipo"
+      data-price="60.00"
+      data-image="perfume ck one contra tipo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img
+        src="perfume ck one contra tipo.jpg"
+        alt="Imagem do Produto 2"
+        onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'"
+      />
+      <div class="product-info">
+        <h3 class="product-name">Perfume CK One Contra Tipo</h3>
+        <p class="product-price">R$ 60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="http://127.0.0.1:3000/Perfume CK One Contratipo .html?serverWindowId=555a224d-7811-4ddf-a104-e85617de90e5" class="buy-now-btn"
+          >Comprar</a
+        >
+      </div>
+    </div>
 
-          <!-- Produto 19 perfume 1 millio luck contratipo       -->
-          <div
-            class="product-card"
-            data-id="prod-1-million-luck"
-            data-name="Perfume 1 Million Luck Contra Tipo"
-            data-price="60.00"
-            data-image="perfume 1 millio luck contratipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume 1 millio luck contratipo.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume 1 Milion Luck Contra Tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/perfume 1 milio luck  Contra Tipo.html?serverWindowId=2aab2f2d-a938-4af4-8651-8445dbe36315" class="buy-now-btn"
-                >Comprar</a>
-              
-              
-            </div>
-          </div>
-          <!-- Produto 20 Perfume Aqua di Gio ContraTipo               -->
-          <div
-            class="product-card"
-            data-id="prod-acqua-di-gio"
-            data-name="Perfume ACQUA DI Giò contra tipo"
-            data-price="60.00"
-            data-image="perfume aqua di gio contra tipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="perfume aqua di gio contra tipo.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume ACQUA DI Giò contra tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume Aqua di Gio ContraTipo.html?serverWindowId=0498fd7d-aac2-41ee-a561-e4f20bc4fcbc" class="buy-now-btn"
-                >Comprar</a>               
-              
-            </div>
-          </div>
-          <!-- Produto 21 Chloè EAU de Parfum Contra tipo                -->
-          <div
-            class="product-card"
-            data-id="prod-chloe-edp"
-            data-name="Chloè EAU de Parfum Contra tipo"
-            data-price="60.00"
-            data-image="perfume cloé contratipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="perfume cloé contratipo.jpg" alt="Imagem do Produto 2" />
-            <div class="product-info">
-              <h3 class="product-name">Chloè EAU de Parfum Contra tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume Chloé Contratipo.html?serverWindowId=6ca715a3-9af0-4846-b9ac-fc2955312f17" class="buy-now-btn"
-                >Comprar</a               
-              >
-            </div>
-          </div>
-          <!-- Produto 22 Perfume Invictus legende -->
-          <div
-            class="product-card"
-            data-id="prod-invictus-legende"
-            data-name="Perfume Invictus legende"
-            data-price="60.00"
-            data-image="perfume invictus legende.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="perfume invictus legende.jpg" alt="Imagem do Produto 2" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Invictus legende</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="http://127.0.0.1:3000/Perfume Invictus Legend Paco Contratipo.html?serverWindowId=181e9290-2a35-43dc-aa95-77ab219053b3" class="buy-now-btn"
-                >Comprar</a>
-              
-            </div>
-          </div>
-          <!-- Produto 23 perfume 212 MEN NYC legitimo              -->
-          <div
-            class="product-card"
-            data-id="prod-212-men-nyc"
-            data-name="Perfume 212 Men NYC"
-            data-price="565.80"
-            data-image="Perfume 212 MEN NYC.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img
-              src="Perfume 212 MEN NYC.jpg"
-              alt="Imagem do Produto 2"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Perfume 212 Men NYC</h3>
-              <p class="product-price">R$ 565,80</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Perfume_212_Men_NYC_200ml_legitimo.html" class="buy-now-btn"
-                >Comprar</a>
-              
-            </div>
-          </div>
-          <!-- Produto 24 Perfume CK One Legitimo-->
-          <div
-            class="product-card"
-            data-id="prod-cat-005"
-            data-name="Nome do Produto 5"
-            data-price="80.00"
-            data-image="perfume CK one legitimo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="perfume CK one legitimo.jpg" alt="Imagem do Produto 5" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume CK One Legitimo</h3>
-              <p class="product-price">R$ 390,90</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="CK One 200ml.html"
-                class="buy-now-btn"
-                >Comprar</a
-              >
-            </div>
-          </div>
-          <!-- Perfume 25 angel contra tipo-->
-          <div
-            class="product-card"
-            data-id="prod-cat-006"
-            data-name="Nome do Produto 6"
-            data-price="105.50"
-            data-image="perfume angel contratipo.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <h3 class="product-name"></h3>
-            <img src="perfume angel contratipo.jpg" alt="Imagem do Produto 6" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume Angel Contra Tipo</h3>
-              <p class="product-price">R$60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
-                href="fume_angel_contra_tipo.html"
-                class="buy-now-btn"
-                >Comprar</a               
-              
-              >
-            </div>
-          </div>
-          <!-- Produto 26 one million royal-->
-          <div
-            class="product-card"
-            data-id="prod-cat-007"
-            data-name="Nome do Produto 7"
-            data-price="25.00"
-            data-image="Perfume_1_Miller_Royal.jpg"
-          >
-            <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Perfume_1_Miller_Royal.jpg" alt="Imagem do Produto 7" />
-            <div class="product-info">
-              <h3 class="product-name">Perfume One-million-royal</h3>
-              <p class="product-price">R$ 548,60</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="one_million_royale.html" class="buy-now-btn nav-link"
-                >Comprar</a
-              >
-            </div>
-          </div>
-          <!-- Produto 27 perfume 212 Men Carolina -->
-          <div
+    <!-- Produto 19 perfume 1 millio luck contratipo       -->
+    <div
+      class="product-card"
+      data-id="prod-1-million-luck"
+      data-name="Perfume 1 Million Luck Contra Tipo"
+      data-price="60.00"
+      data-image="perfume 1 millio luck contratipo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img
+        src="perfume 1 millio luck contratipo.jpg"
+        alt="Imagem do Produto 2"
+        onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'"
+      />
+      <div class="product-info">
+        <h3 class="product-name">Perfume 1 Milion Luck Contra Tipo</h3>
+        <p class="product-price">R$ 60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="http://127.0.0.1:3000/perfume 1 milio luck  Contra Tipo.html?serverWindowId=2aab2f2d-a938-4af4-8651-8445dbe36315" class="buy-now-btn"
+          >Comprar</a
+        >
+      </div>
+    </div>
+    <!-- Produto 20 Perfume Aqua di Gio ContraTipo               -->
+    <div
+      class="product-card"
+      data-id="prod-acqua-di-gio"
+      data-name="Perfume ACQUA DI Giò contra tipo"
+      data-price="60.00"
+      data-image="perfume aqua di gio contra tipo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img
+        src="perfume aqua di gio contra tipo.jpg"
+        alt="Imagem do Produto 2"
+        onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'"
+      />
+      <div class="product-info">
+        <h3 class="product-name">Perfume ACQUA DI Giò contra tipo</h3>
+        <p class="product-price">R$ 60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="http://127.0.0.1:3000/Perfume Aqua di Gio ContraTipo.html?serverWindowId=0498fd7d-aac2-41ee-a561-e4f20bc4fcbc" class="buy-now-btn"
+          >Comprar</a
+        >              
+      </div>
+    </div>
+    <!-- Produto 21 Chloè EAU de Parfum Contra tipo                -->
+    <div
+      class="product-card"
+      data-id="prod-chloe-edp"
+      data-name="Chloè EAU de Parfum Contra tipo"
+      data-price="60.00"
+      data-image="perfume cloé contratipo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img src="perfume cloé contratipo.jpg" alt="Imagem do Produto 2" onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'" />
+      <div class="product-info">
+        <h3 class="product-name">Chloè EAU de Parfum Contra tipo</h3>
+        <p class="product-price">R$ 60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="http://127.0.0.1:3000/Perfume Chloé Contratipo.html?serverWindowId=6ca715a3-9af0-4846-b9ac-fc2955312f17" class="buy-now-btn"
+          >Comprar</a              
+        >
+      </div>
+    </div>
+    <!-- Produto 22 Perfume Invictus legende -->
+    <div
+      class="product-card"
+      data-id="prod-invictus-legende"
+      data-name="Perfume Invictus legende"
+      data-price="60.00"
+      data-image="perfume invictus legende.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img src="perfume invictus legende.jpg" alt="Imagem do Produto 2" onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'" />
+      <div class="product-info">
+        <h3 class="product-name">Perfume Invictus legende</h3>
+        <p class="product-price">R$ 60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="http://127.0.0.1:3000/Perfume Invictus Legend Paco Contratipo.html?serverWindowId=181e9290-2a35-43dc-aa95-77ab219053b3" class="buy-now-btn"
+          >Comprar</a
+        >
+      </div>
+    </div>
+    <!-- Produto 23 perfume 212 MEN NYC legitimo              -->
+    <div
+      class="product-card"
+      data-id="prod-212-men-nyc"
+      data-name="Perfume 212 Men NYC"
+      data-price="565.80"
+      data-image="Perfume 212 MEN NYC.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img
+        src="Perfume 212 MEN NYC.jpg"
+        alt="Imagem do Produto 2"
+        onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'"
+      />
+      <div class="product-info">
+        <h3 class="product-name">Perfume 212 Men NYC</h3>
+        <p class="product-price">R$ 565,80</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="Perfume_212_Men_NYC_200ml_legitimo.html" class="buy-now-btn"
+          >Comprar</a
+        >
+      </div>
+    </div>
+    <!-- Produto 24 Perfume CK One Legitimo-->
+    <div
+      class="product-card"
+      data-id="prod-cat-005"
+      data-name="Nome do Produto 5"
+      data-price="80.00"
+      data-image="perfume CK one legitimo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img src="perfume CK one legitimo.jpg" alt="Imagem do Produto 5" onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'" />
+      <div class="product-info">
+        <h3 class="product-name">Perfume CK One Legitimo</h3>
+        <p class="product-price">R$ 390,90</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a
+          href="CK One 200ml.html"
+          class="buy-now-btn"
+          >Comprar</a
+        >
+      </div>
+    </div>
+    <!-- Perfume 25 angel contra tipo-->
+    <div
+      class="product-card"
+      data-id="prod-cat-006"
+      data-name="Nome do Produto 6"
+      data-price="105.50"
+      data-image="perfume angel contratipo.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <h3 class="product-name"></h3>
+      <img src="perfume angel contratipo.jpg" alt="Imagem do Produto 6" onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'" />
+      <div class="product-info">
+        <h3 class="product-name">Perfume Angel Contra Tipo</h3>
+        <p class="product-price">R$60,00</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a
+          href="fume_angel_contra_tipo.html"
+          class="buy-now-btn"
+          >Comprar</a              
+        
+        >
+      </div>
+    </div>
+    <!-- Produto 26 one million royal-->
+    <div
+      class="product-card"
+      data-id="prod-cat-007"
+      data-name="Nome do Produto 7"
+      data-price="25.00"
+      data-image="Perfume_1_Miller_Royal.jpg"
+    >
+      <a
+        href="#"
+        class="favorite-icon"
+        aria-label="Adicionar aos Favoritos"
+        ><i class="far fa-heart"></i
+      ></a>
+      <img src="Perfume_1_Miller_Royal.jpg" alt="Imagem do Produto 7" onerror="this.src='https://placehold.co/300x300?text=Imagem+Indisponível'" />
+      <div class="product-info">
+        <h3 class="product-name">Perfume One-million-royal</h3>
+        <p class="product-price">R$ 548,60</p>
+        <a href="https://wa.me/552198092293" class="add-to-cart-btn">WhatsApp</a>
+        <a href="one_million_royale.html" class="buy-now-btn nav-link"
+          >Comprar</a
+        >
+      </div>
+    </div>
+    
+
+        <!-- Produto 27 perfume 212 Men Carolina -->
+            <div
             class="product-card"
             data-id="prod-cat-008"
             data-name="Nome do Produto 8"
             data-price="199.90"
             data-image="212 Men Carolina Herrera.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="212 Men Carolina Herrera.jpg"
-              alt="Imagem do Produto 8"
+                src="212 Men Carolina Herrera.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=212+Men'"
+                alt="Imagem do Produto 8"
             />
             <div class="product-info">
-              <h3 class="product-name">Perfume 212 MEN</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Perfume 212 MEN</h3>
+                <p class="product-price">R$ 60,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Perfume_212Men_Carolina_Errera.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-          <!-- Produto 28 - For me blue seduction -->
-          <div
+            </div>
+
+            <!-- Produto 28 - For me blue seduction -->
+            <div
             class="product-card"
             data-id="prod-new-001"
             data-name="For Mem blue Seduction"
             data-price="60.00"
             data-image="perfume for men blue seduction contratipo.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="perfume for men blue seduction contratipo.jpg"
-              alt="Perfume For me blue seduction"
+                src="perfume for men blue seduction contratipo.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Blue+Seduction'"
+                alt="Perfume For me blue seduction"
             />
             <div class="product-info">
-              <h3 class="product-name">For Mem Blue Seduction</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">For Mem Blue Seduction</h3>
+                <p class="product-price">R$ 60,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Perfume_For_Mem_BlueSeduction.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-          <!-- Produto 29 - Azzaro Wanted -->
-          <div
+            </div>
+
+            <!-- Produto 29 - Azzaro Wanted -->
+            <div
             class="product-card"
             data-id="prod-new-002"
             data-name="Azzaro Wanted"
             data-price="60.00"
             data-image="perfume azarro wanted contra tipo.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="perfume azarro wanted contra tipo.jpg"
-              alt="Perfume Azzaro Wanted"
+                src="perfume azarro wanted contra tipo.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Azzaro'"
+                alt="Perfume Azzaro Wanted"
             />
             <div class="product-info">
-              <h3 class="product-name">Azzaro Wanted-Contra tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Azzaro Wanted-Contra tipo</h3>
+                <p class="product-price">R$ 60,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="perfume_Azzaro_Wanted_50ml.html"
                 class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-         
+            </div>
+            
 
-          <!-- Produto 30 - Flower by kenzo Contra tipo -->
-          <div
+            <!-- Produto 30 - Flower by kenzo Contra tipo -->
+            <div
             class="product-card"
             data-id="prod-new-004"
             data-name="Flower by kenzo"
             data-price="60.00"
             data-image="flouer by kenzo contra tipo.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="flouer by kenzo contra tipo.jpg"
-              alt="Perfume Flower by kenzo"
+                src="flouer by kenzo contra tipo.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Flower+by+Kenzo'"
+                alt="Perfume Flower by kenzo"
             />
             <div class="product-info">
-              <h3 class="product-name">Flower by kenzo-contra tipo</h3>
-              <p class="product-price">R$ 60,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Flower by kenzo-contra tipo</h3>
+                <p class="product-price">R$ 60,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Perfume_Flower_be_Kenzo_-Kenzo.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-        
-            <!-- Título da Categoria Relógios e Acessórios -->
-          <h3 class="category-title">Tênis</h3>
-          
-          <!-- Produto 31 - Air force branco, preto e preto -->
-          <div
+            </div>
+            
+            <!-- Título da Categoria Tênis -->
+            <h3 class="category-title">Tênis</h3>
+            
+            <!-- Produto 31 - Air force branco, preto e preto -->
+            <div
             class="product-card"
             data-id="prod-new-006"
             data-name="Air force"
             data-price="150.00"
             data-image="Tênis Preto e Braco.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="Tênis Preto e Braco.jpg" alt="Air force" />
+            <img src="Tênis Preto e Braco.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+PB'" alt="Air force" />
             <div class="product-info">
-              <h3 class="product-name">Air force</h3>
-              <p class="product-price">R$ 150,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Air force</h3>
+                <p class="product-price">R$ 150,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Tênis_AIR_force_Branco_Preto.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-          <!-- Produto 32 - Air force branco e cinza -->
-          <div
+            </div>
+
+            <!-- Produto 32 - Air force branco e cinza -->
+            <div
             class="product-card"
             data-id="prod-new-007"
             data-name="Air force"
             data-price="150.00"
             data-image="tênis branco e ciza.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="tênis branco e ciza.jpg" alt="Air force" />
+            <img src="tênis branco e ciza.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+BC'" alt="Air force" />
             <div class="product-info">
-              <h3 class="product-name">Air force</h3>
-              <p class="product-price">R$ 150,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Tênis_Branco_e_cinza.html" class="buy-now-btn nav-link"
+                <h3 class="product-name">Air force</h3>
+                <p class="product-price">R$ 150,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Tênis_Branco_e_cinza.html" class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
+            </div>
 
-        
-          <!-- Produto 33 - Air force branco com rosa -->
-          <div
+            
+            <!-- Produto 33 - Air force branco com rosa -->
+            <div
             class="product-card"
             data-id="prod-new-008"
             data-name="Air force"
             data-price="150.00"
-            data-image="Tênis  brnco e rosa.jpg"
-          >
+            data-image="Tênis  brnco e rosa.jpg"
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="Tênis  brnco e rosa.jpg" alt="Air force" />
+            <img src="Tênis  brnco e rosa.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+Rosa'" alt="Air force" />
             <div class="product-info">
-              <h3 class="product-name">Air force</h3>
-              <p class="product-price">R$ 150,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Tênis_Air_for_branco_e_cinza.html" class="buy-now-btn">Comprar</a>
-              
+                <h3 class="product-name">Air force</h3>
+                <p class="product-price">R$ 150,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Tênis_Air_for_branco_e_cinza.html" class="buy-now-btn">Comprar</a>
+                
             </div>
-          </div>
+            </div>
 
-          <!-- Produto 34 - Air Force Marrom -->
-          <div
+            <!-- Produto 34 - Air Force Marrom -->
+            <div
             class="product-card"
             data-id="prod-new-011"
             data-name="Air Force"
             data-price="150.00"
             data-image="Tênis marrom.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="Tênis marrom.jpg" alt="Air Force Marrom" />
+            <img src="Tênis marrom.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+Marrom'" alt="Air Force Marrom" />
             <div class="product-info">
-              <h3 class="product-name">Air Force</h3>
-              <p class="product-price">R$ 150,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="tênis_marron.html" class="buy-now-btn nav-link"
+                <h3 class="product-name">Air Force</h3>
+                <p class="product-price">R$ 150,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="tênis_marron.html" class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-          
- <!-- Título da Categoria Relógios e Acessórios -->
-          <h3 class="category-title">Relógios e Acessórios</h3>
-           <!-- Produto 35 - Smart watch 8 Pro -->
-          <div
+            </div>
+            
+            <!-- Título da Categoria Relógios e Acessórios -->
+            <h3 class="category-title">Relógios e Acessórios</h3>
+
+            <!-- Produto 35 - Smart watch 8 Pro -->
+            <div
             class="product-card"
             data-id="prod-new-003"
             data-name="Smart watch 8 Pro"
             data-price="135.00"
             data-image="Relógio Smart Watch 9 plus 1 - Copia.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="Relógio Smart Watch 9 plus 1 - Copia.jpg"
-              alt="Smart watch 9 Pro"
+                src="Relógio Smart Watch 9 plus 1 - Copia.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+8'"
+                alt="Smart watch 9 Pro"
             />
             <div class="product-info">
-              <h3 class="product-name">Smart watch 9 Pro</h3>
-              <p class="product-price">R$ 135,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Smart watch 9 Pro</h3>
+                <p class="product-price">R$ 135,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Relogio_Smart_Watch_8_Pro.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
+            </div>
 
-          <!-- Produto 36 - Microwear RUN2 -->
-          <div
+            <!-- Produto 36 - Microwear RUN2 -->
+            <div
             class="product-card"
             data-id="prod-new-014"
             data-name="Microwear RUN2"
             data-price="200.00"
             data-image="Relogio microwear Run2.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="Relogio microwear Run2.jpg" alt="Microwear RUN2" />
+            <img src="Relogio microwear Run2.jpg" onerror="this.src='https://placehold.co/300x300?text=Microwear+Run2'" alt="Microwear RUN2" />
             <div class="product-info">
-              <h3 class="product-name">Microwear RUN2</h3>
-              <p class="product-price">R$ 200,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Relogio_micro_Rum.html" class="buy-now-btn nav-link"
+                <h3 class="product-name">Microwear RUN2</h3>
+                <p class="product-price">R$ 200,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relogio_micro_Rum.html" class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-          <!-- Produto 37 - Smart watch ultra 9 plus -->
-          <div
+            </div>
+
+            <!-- Produto 37 - Smart watch ultra 9 plus -->
+            <div
             class="product-card"
             data-id="prod-new-015"
             data-name="Smart watch ultra 9 plus"
             data-price="170.00"
             data-image="Relogio microwear ultra 9.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="Relogio microwear ultra 9.jpg"
-              alt="Smart watch ultra 9 plus"
+                src="Relogio microwear ultra 9.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Ultra+9+Plus'"
+                alt="Smart watch ultra 9 plus"
             />
             <div class="product-info">
-              <h3 class="product-name">Smart watch ultra 9 plus</h3>
-              <p class="product-price">R$ 170,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Smart watch ultra 9 plus</h3>
+                <p class="product-price">R$ 170,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="http://127.0.0.1:3000/Relógio Smart Watch 9 Plus.html?serverWindowId=bd60daf4-835e-4879-ad0b-d19f5d2f1500"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
+            </div>
 
 
-          <!-- Produto 38 Relógio Micrower ultramani               -->
-          <div 
+            <!-- Produto 38 Relógio Micrower ultramani -->
+            <div 
             class="product-card"
             data-id="prod-microwear-ultramani"
             data-name="Relogio microwear ultramani"
             data-price="190.00"
             data-image="Relogio microwear ultramani200.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="Relogio microwear ultramani200.jpg"
-              alt="Imagem do Produto 2"
+                src="relogio microwear ultramani200.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Ultramani'"
+                alt="Imagem do Produto 2"
             />
             <div class="product-info">
-              <h3 class="product-name">Relogio microwear ultramani</h3>
-              <p class="product-price">R$ 190,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Relogio microwear ultramani</h3>
+                <p class="product-price">R$ 190,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="http://127.0.0.1:3000/relogio microwear ultramani200.html?serverWindowId=b612593a-9c0b-4861-8795-eb3beacaf701"
                 class="buy-now-btn"
                 >Comprar</a>
-              </div>
-              </div>
-  
-              <!-- Produto 39 - Relógio W69 ultra -->
-          <div
+                </div>
+            </div>
+    
+            <!-- Produto 39 - Relógio W69 ultra -->
+            <div
             class="product-card"
             data-id="prod-new-005"
             data-name="W69 ultra"
             data-price="180.00"
             data-image="Relógio w69 utra.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="Relógio w69 utra.jpg" alt="W69 ultra" />
+            <img src="Relógio w69 utra.jpg" onerror="this.src='https://placehold.co/300x300?text=W69+Ultra'" alt="W69 ultra" />
             <div class="product-info">
-              <h3 class="product-name">W69 ultra</h3>
-              <p class="product-price">R$ 180,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Relogio_W69_Ultra.html" class="buy-now-btn nav-link"
+                <h3 class="product-name">W69 ultra</h3>
+                <p class="product-price">R$ 180,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relogio_W69_Ultra.html" class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-              <!-- Produto 40 - pulcera lisa-->
-          <div
+            </div>
+
+            <!-- Produto 40 - pulcera lisa-->
+            <div
             class="product-card"
             data-id="prod-new-010"
             data-name="One Million Royal"
             data-price="548.60"
             data-image="pulcera lisa.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
-            <img src="pulcera lisa.jpg" alt="Pulcera lisa" />
+            <img src="pulcera lisa.jpg" onerror="this.src='https://placehold.co/300x300?text=Pulseira'" alt="Pulcera lisa" />
             <div class="product-info">
-              <h3 class="product-name">Pulcera lisa</h3>
-              <p class="product-price">R$ 15,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a
+                <h3 class="product-name">Pulcera lisa</h3>
+                <p class="product-price">R$ 15,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
                 href="Pulceira_para_relogio.html"
                 class="buy-now-btn"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
+            </div>
 
 
-          <!-- Produto 41 - Smart watch ultra gold 24k -->
-          <div
+            <!-- Produto 41 - Smart watch ultra gold 24k -->
+            <div
             class="product-card"
             data-id="prod-new-016"
             data-name="Smart watch ultra gold 24k"
             data-price="180.00"
             data-image="relógio ultra mini gold smart watch.jpg"
-          >
+            >
             <a
-              href="#"
-              class="favorite-icon"
-              aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
             ></a>
             <img
-              src="relógio ultra mini gold smart watch.jpg"
-              alt="Smart watch ultra gold"
+                src="relógio ultra mini gold smart watch.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+Gold'"
+                alt="Smart watch ultra gold"
             />
             <div class="product-info">
-              <h3 class="product-name">Smart watch ultra gold 24k</h3>
-              <p class="product-price">R$ 180,00</p>
-              <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-              <a href="Relogio_ultra_Gold_24k.html" class="buy-now-btn nav-link"
+                <h3 class="product-name">Smart watch ultra gold 24k</h3>
+                <p class="product-price">R$ 180,00</p>
+                <a href="https://wa.me/552198092293" class="add-to-cart-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relogio_ultra_Gold_24k.html" class="buy-now-btn nav-link"
                 >Comprar</a
-              >
+                >
             </div>
-          </div>
-
-
-          
-          
-                             
-              
-          
-
-
-         
-        </div>
-      </section>
-    </main>
-
-    <!-- ======================= -->
+            </div>
+            <!-- ======================= -->
     <!-- RODAPÉ (FOOTER)         -->
     <!-- ======================= -->
     <footer class="footer">
@@ -1889,11 +1923,7 @@
         </div>
       </div>
     </footer> 
-        <div class="footer-bottom">
-          <p>&copy; 2024 Copains. Todos os direitos reservados.</p>
-        </div>
-      </div>
-    </footer>
+        
 
     <!-- ======================= -->
     <!-- MODAL DO CARRINHO       -->
@@ -1918,5 +1948,6 @@
     </div>
 
     <script src="main.js" defer></script>
+  </div>
   </body>
 </html>
