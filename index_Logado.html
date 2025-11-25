@@ -560,8 +560,7 @@
           </li>
           <li><a href="area_do_usuario.html">Perfil</a></li>
         </li>
-         <li><a href="carrinho.html">carrinho</a></li>
-        </li>
+         
         <li class="relative">
             <a href="favoritos.html">Favoritos</a>
             <span
@@ -578,11 +577,6 @@
 
        
 
-      <div class="flex items-center gap-6">
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#" class="text-xl hover:text-primary transition-colors"
-            ><i class="fas fa-search"></i
-          ></a>
           <a
             href="login.html"
             id="user-account-link"
@@ -591,9 +585,7 @@
           ></a>
         </div>
         <div class="relative" id="cart-icon" style="cursor: pointer">
-          <i
-            class="fas fa-shopping-cart text-xl hover:text-primary transition-colors"
-          ></i>
+          
           <span
             id="cart-item-count"
             class="absolute -top-2 -right-2 bg-primary text-light rounded-full px-1.5 py-0.5 text-xs font-bold hidden"
@@ -679,27 +671,6 @@
       </section>
     </main>
 
-    <!-- ======================= -->
-    <!-- MODAL DO CARRINHO       -->
-    <!-- ======================= -->
-    <div class="cart-modal-overlay" id="cart-modal-overlay">
-      <div class="cart-modal" id="cart-modal">
-        <div class="cart-header">
-          <h3>Meu Carrinho</h3>
-          <button class="cart-close-btn" id="cart-close-btn">&times;</button>
-        </div>
-        <div class="cart-body" id="cart-body">
-          <!-- Itens do carrinho serão inseridos aqui via JS -->
-        </div>
-        <div class="cart-footer">
-          <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total">R$ 0,00</span>
-          </div>
-          <button class="checkout-btn">Finalizar Compra</button>
-        </div>
-      </div>
-    </div>
 
       <!-- ======================= -->
     <!-- RODAPÉ (FOOTER)         -->
@@ -772,6 +743,3 @@
     });
   </script>
 </html>
-
-
-
