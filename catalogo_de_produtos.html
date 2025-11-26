@@ -1761,11 +1761,25 @@
         }
       });
     </script>
+    <script>
+      // FAVORITOS: Lógica para catálogo (mesma implementação usada em TESTE.HTML)
+      (function () {
+        const FAVORITES_KEY = 'favorites';
+        function getFavorites() { try { return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || []; } catch(e) { return []; } }
+        function saveFavorites(favs) { localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs)); }
+        function updateFavoritesCount() { const count = getFavorites().length; const countEl = document.getElementById('favorites-count'); if (countEl) { countEl.textContent = count; if (count > 0) countEl.classList.remove('hidden'); else countEl.classList.add('hidden'); } }
+        function isFavoriteId(id) { if (!id) return false; return getFavorites().some(p => p.id === id); }
+        function toggleFavorite(product) { if (!product || !product.id) return; let favs = getFavorites(); const exists = favs.find(p => p.id === product.id); if (exists) favs = favs.filter(p => p.id !== product.id); else favs.push({ id: product.id, name: product.name, price: product.price, image: product.image, link: product.link }); saveFavorites(favs); updateFavoritesCount(); }
+        function updateStoreIcons(){ document.querySelectorAll('.product-card').forEach(card => { const id = card.dataset.id; const icon = card.querySelector('.favorite-icon'); const heart = icon && icon.querySelector('i'); if (!icon || !heart) return; if (id && isFavoriteId(id)) { icon.classList.add('active'); heart.classList.remove('far'); heart.classList.add('fas'); } else { icon.classList.remove('active'); heart.classList.remove('fas'); heart.classList.add('far'); } }); }
+        function bindFavoriteButtons(){ document.querySelectorAll('.product-card .favorite-icon').forEach(iconEl => { if (iconEl.__favoriteBound) return; iconEl.__favoriteBound = true; iconEl.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); const card = iconEl.closest('.product-card'); if (!card) return; const product = { id: card.dataset.id || (card.dataset.name ? `id-${card.dataset.name}` : null), name: card.dataset.name || card.querySelector('.product-name')?.textContent?.trim(), price: card.dataset.price || card.querySelector('.product-price')?.textContent?.trim(), image: card.querySelector('img')?.src || '', link: card.querySelector('a[href]')?.href || '' }; toggleFavorite(product); updateStoreIcons(); }); }); }
+        document.addEventListener('DOMContentLoaded', () => { bindFavoriteButtons(); updateStoreIcons(); updateFavoritesCount(); });
+        window.addEventListener('storage', (e) => { if (e.key === 'favorites') { updateStoreIcons(); updateFavoritesCount(); } });
+      })();
+    </script>
   </body>
 </html>
        
         
-
 
 
 
