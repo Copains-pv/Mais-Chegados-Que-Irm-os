@@ -586,7 +586,7 @@
             />
             <div class="product-info">
               <h3 class="product-name">Good Girl Carolina Errera</h3>
-              <p class="product-price">R$ 524,50</p>
+              <p class="product-price">R$ 60,00</p>
               <a
                 href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Good Girl"
                 class="whatsapp-btn"
@@ -1373,7 +1373,7 @@
           <!-- 33. Produto: Air Force Branco Cinza e Verdecom Bosa -->
           <div
             class="product-card"
-            data-id="prod-new-008"
+            data-id="prod-new-008b"
             data-name="Air force"
             data-price="150.00"
             data-image="Tênis  brnco e rosa.jpg"
@@ -1400,7 +1400,7 @@
            <!-- 34. Produto: Air Force Branco com Bosa -->
           <div
             class="product-card"
-            data-id="prod-new-008"
+            data-id="prod-new-008c"
             data-name="Air force"
             data-price="150.00"
             data-image="Tênis  brnco e rosa.jpg"
@@ -1770,8 +1770,65 @@
         function updateFavoritesCount() { const count = getFavorites().length; const countEl = document.getElementById('favorites-count'); if (countEl) { countEl.textContent = count; if (count > 0) countEl.classList.remove('hidden'); else countEl.classList.add('hidden'); } }
         function isFavoriteId(id) { if (!id) return false; return getFavorites().some(p => p.id === id); }
         function toggleFavorite(product) { if (!product || !product.id) return; let favs = getFavorites(); const exists = favs.find(p => p.id === product.id); if (exists) favs = favs.filter(p => p.id !== product.id); else favs.push({ id: product.id, name: product.name, price: product.price, image: product.image, link: product.link }); saveFavorites(favs); updateFavoritesCount(); }
-        function updateStoreIcons(){ document.querySelectorAll('.product-card').forEach(card => { const id = card.dataset.id; const icon = card.querySelector('.favorite-icon'); const heart = icon && icon.querySelector('i'); if (!icon || !heart) return; if (id && isFavoriteId(id)) { icon.classList.add('active'); heart.classList.remove('far'); heart.classList.add('fas'); } else { icon.classList.remove('active'); heart.classList.remove('fas'); heart.classList.add('far'); } }); }
-        function bindFavoriteButtons(){ document.querySelectorAll('.product-card .favorite-icon').forEach(iconEl => { if (iconEl.__favoriteBound) return; iconEl.__favoriteBound = true; iconEl.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); const card = iconEl.closest('.product-card'); if (!card) return; const product = { id: card.dataset.id || (card.dataset.name ? `id-${card.dataset.name}` : null), name: card.dataset.name || card.querySelector('.product-name')?.textContent?.trim(), price: card.dataset.price || card.querySelector('.product-price')?.textContent?.trim(), image: card.querySelector('img')?.src || '', link: card.querySelector('a[href]')?.href || '' }; toggleFavorite(product); updateStoreIcons(); }); }); }
+        function updateStoreIcons(){
+          document.querySelectorAll('.product-card').forEach(card => {
+            const id = card.dataset.id;
+            const icon = card.querySelector('.favorite-icon');
+            const heart = icon && icon.querySelector('i');
+            if (!icon || !heart) return;
+            // Ensure accessibility attributes are present
+            icon.setAttribute('role', 'button');
+            icon.setAttribute('tabindex', '0');
+
+            if (id && isFavoriteId(id)) {
+              icon.classList.add('active');
+              heart.classList.remove('far');
+              heart.classList.add('fas');
+              icon.setAttribute('aria-pressed', 'true');
+              icon.setAttribute('title', 'Remover dos Favoritos');
+            } else {
+              icon.classList.remove('active');
+              heart.classList.remove('fas');
+              heart.classList.add('far');
+              icon.setAttribute('aria-pressed', 'false');
+              icon.setAttribute('title', 'Adicionar aos Favoritos');
+            }
+          });
+        }
+        function bindFavoriteButtons(){
+          document.querySelectorAll('.product-card .favorite-icon').forEach(iconEl => {
+            if (iconEl.__favoriteBound) return;
+            iconEl.__favoriteBound = true;
+
+            // Ensure keyboard accessibility (Enter / Space)
+            iconEl.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                iconEl.click();
+              }
+            });
+
+            iconEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const card = iconEl.closest('.product-card');
+              if (!card) return;
+              const buyBtn = card.querySelector('.buy-now-btn');
+              const whatsBtn = card.querySelector('.whatsapp-btn');
+              const productPageLink = card.querySelector('a[href]:not(.favorite-icon):not(.whatsapp-btn):not(.buy-now-btn)');
+              const product = {
+                id: card.dataset.id || (card.dataset.name ? `id-${card.dataset.name}` : null),
+                name: card.dataset.name || card.querySelector('.product-name')?.textContent?.trim(),
+                price: card.dataset.price || card.querySelector('.product-price')?.textContent?.trim(),
+                image: card.querySelector('img')?.src || '',
+                // Prefer buy button link, fallback to whatsapp or product page link
+                link: (buyBtn && buyBtn.href) || (whatsBtn && whatsBtn.href) || (productPageLink && productPageLink.href) || ''
+              };
+              toggleFavorite(product);
+              updateStoreIcons();
+            });
+          });
+        }
         document.addEventListener('DOMContentLoaded', () => { bindFavoriteButtons(); updateStoreIcons(); updateFavoritesCount(); });
         window.addEventListener('storage', (e) => { if (e.key === 'favorites') { updateStoreIcons(); updateFavoritesCount(); } });
       })();
