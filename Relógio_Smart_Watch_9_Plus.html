@@ -210,17 +210,7 @@
             ><i class="fas fa-user"></i
           ></a>
         </div>
-        <!-- Ícone do Carrinho (visível em todas as telas) -->
-        <div id="cart-icon" class="relative cursor-pointer">
-          <i
-            class="fas fa-shopping-cart text-xl transition duration-300 hover:text-primary"
-          ></i>
-          <span
-            id="cart-item-count"
-            class="absolute top-[-8px] right-[-10px] bg-primary text-light rounded-full px-1.5 py-0.5 text-xs font-bold hidden"
-            >0</span
-          >
-        </div>
+       
         <!-- Botão Hambúrguer (apenas mobile) -->
         <button class="md:hidden text-2xl cursor-pointer" id="hamburger-btn">
           <i class="fas fa-bars"></i>
@@ -341,7 +331,7 @@
              <ul class="list-unstyled">
               <li><a href="index.html">Inicio</a></li>
               <li><a href="catalogo_de_produtos.html">Produtos</a></li>
-              <li><a href="carrinho.html">Carrinho</a></li>
+              
               <li><a href="#"></a></li>
             </ul>
           </div>
@@ -379,31 +369,6 @@
       </div>
     </footer>
 
-    <!-- ======================= -->
-    <!-- MODAL DO CARRINHO       -->
-    <!-- ======================= -->
-    <div class="cart-modal-overlay" id="cart-modal-overlay">
-      <div class="cart-modal" id="cart-modal">
-        <div class="cart-header">
-          <h3>Meu Carrinho</h3>
-          <button class="cart-close-btn" id="cart-close-btn">&times;</button>
-        </div>
-        <div class="cart-body" id="cart-body">
-          <!-- Itens do carrinho serão inseridos aqui via JS -->
-        </div>
-        <div class="cart-footer">
-          <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total">R$ 0,00</span>
-          </div>
-          <button
-            class="checkout-btn bg-primary text-light font-bold py-2 px-4 rounded"
-          >
-            Finalizar Compra
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- Script Principal Centralizado. O 'defer' otimiza o carregamento da página. -->
     <script src="main.js" defer></script>
