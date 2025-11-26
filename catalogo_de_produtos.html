@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copains - Moda e Estilo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      /* ======================= */
+      /* RESET E GLOBAIS         */
+      /* ======================= */
+      :root {
+        --primary-color: #ff6f61;
+        --dark-color: #111111;
+        --light-color: #ffffff;
+        --text-color: #333;
+        --gray-light: #f4f4f4;
+        --whatsapp-green: #25d366;
+        --whatsapp-dark: #128c7e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text-color);
+        background-color: var(--light-color);
+        padding-top: 80px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* ======================= */
+      /* HEADER / NAVEGAÇÃO      */
+      /* ======================= */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--light-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        height: 80px;
+      }
+      .header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--dark-color);
+      }
+      .header .nav-links {
+        display: flex;
+        gap: 2.5rem;
+      }
+      .header .nav-links a {
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+      .header .nav-links a:hover {
+        color: var(--primary-color);
+      }
+      .header .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .header .nav-icons a {
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+      .header .nav-icons a:hover {
+        color: var(--primary-color);
+      }
+      .hamburger {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--dark-color);
+      }
+
+      /* Barra de pesquisa no Header */
+      .search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .search-input {
+        padding: 0.5rem 1rem 0.5rem 2.5rem;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+      }
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        color: #aaa;
+      }
+
+      /* ======================= */
+      /* FILTRO DE PESQUISA      */
+      /* ======================= */
+      .catalog-search-container {
+        position: relative;
+        margin: 0 auto 3rem;
+        max-width: 500px;
+      }
+      #catalog-search-input {
+        width: 100%;
+        padding: 0.75rem 1.5rem 0.75rem 3.5rem;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        font-size: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      .catalog-search-icon {
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+      }
+
+      /* ======================= */
+      /* SEÇÃO HERO (BANNER)     */
+      /* ======================= */
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(90vh - 80px);
+        color: var(--light-color);
+        text-align: center;
+        position: relative;
+        background: url("https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop")
+          no-repeat center center/cover;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .cta-button {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+      }
+      .cta-button:hover {
+        background-color: #e65a50;
+        transform: translateY(-3px);
+      }
+
+      /* ======================= */
+      /* CATÁLOGO DE PRODUTOS    */
+      /* ======================= */
+      .product-catalog {
+        padding: 5rem 0;
+      }
+      .product-catalog h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--dark-color);
+      }
+      .category-title {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+        color: var(--dark-color);
+        border-bottom: 2px solid var(--gray-light);
+        padding-bottom: 0.5rem;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      .product-card {
+        background: var(--light-color);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .product-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+      .product-info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+      .product-name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .product-price {
+        color: var(--text-color);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Botões de Ação */
+      .whatsapp-btn {
+        background-color: var(--whatsapp-green);
+        color: var(--light-color);
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+      }
+      .whatsapp-btn:hover {
+        background-color: var(--whatsapp-dark);
+      }
+      .buy-now-btn {
+        background-color: #e65a50;
+        color: var(--light-color);
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+      .buy-now-btn:hover {
+        background-color: #d34a40;
+      }
+
+      /* Ícone Favorito */
+      .favorite-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #ccc;
+        transition: color 0.3s ease;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .favorite-icon:hover {
+        color: var(--primary-color);
+        background: #fff;
+      }
+
+      /* ======================= */
+      /* RODAPÉ (FOOTER)         */
+      /* ======================= */
+      .footer {
+        background-color: var(--dark-color);
+        color: var(--gray-light);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .footer-column h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--light-color);
+      }
+      .footer-column ul li {
+        margin-bottom: 0.75rem;
+      }
+      .footer-column ul a {
+        color: #ccc;
+        transition: color 0.3s ease;
+      }
+      .footer-column ul a:hover {
+        color: var(--primary-color);
+      }
+      .social-icons a {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: #ccc;
+        transition: color 0.3s ease;
+      }
+      .social-icons a:hover {
+        color: var(--primary-color);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      /* ======================= */
+      /* RESPONSIVIDADE          */
+      /* ======================= */
+      @media (max-width: 992px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        body {
+          padding-top: 70px;
+        }
+        .header {
+          height: 70px;
+          padding: 1rem;
+        }
+        /* Menu Mobile */
+        .header .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background-color: var(--light-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          transition: left 0.3s ease-in-out;
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header .nav-links.active {
+          left: 0;
+        }
+        .header .nav-links a {
+          font-size: 1.5rem;
+        }
+        .hamburger {
+          display: block;
+          z-index: 1001;
+        }
+        .header .search-container {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .social-icons {
+          text-align: center;
+          margin-top: 1rem;
+        }
+      }
+      @media (max-width: 576px) {
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          height: calc(80vh - 70px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <a href="index_Logado.html" class="logo">Copains</a>
+      <nav>
+        <ul class="nav-links" id="mobile-menu">
+          <li><a href="index_Logado.html">Início</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
+          <li><a href="index.html">Sair</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar produtos..."
+        />
+      </div>
+      <div class="nav-icons">
+        <a href="area_do_usuario.html" aria-label="Conta do usuário">
+          <i class="fas fa-user"></i>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Mas Chegados Que Irmãos</h1>
+          <p>Estilo e conforto para seus dias.</p>
+          <a href="#" class="cta-button">Seja Bem-Vindo</a>
+        </div>
+      </section>
+
+      <!-- CATÁLOGO -->
+      <section class="product-catalog container">
+        <h2>Nosso Catálogo</h2>
+        <div class="catalog-search-container">
+          <i class="fas fa-search catalog-search-icon"></i>
+          <input
+            type="text"
+            id="catalog-search-input"
+            placeholder="Pesquisar no catálogo..."
+          />
+        </div>
+
+        <div class="product-grid">
+          <!-- Categoria: Hidratantes -->
+          <h3 class="category-title">Hidratantes</h3>
+
+          <!-- BLOCO DO PRODUTO 1: Hidratante 212 Vip Rose -->
+          <div
+            class="product-card"
+            data-id="prod-cat-002"
+            data-name="Hidratante 212 Vip Rose"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="hidratante 212 vip rose.jpg"
+              alt="Hidratante 212 Vip Rose"
+              onerror="this.src='https://placehold.co/300x300?text=212+Vip+Rose'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Hidratante 212 Vip Rose</h3>
+              <p class="product-price">R$ 75,50</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Hidratante 212 Vip Rose"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a
+                href="hidratante_212_vip_rose_are_tou_on.html"
+                class="buy-now-btn"
+              >
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 2: Hidratante Vitoria Secret -->
+          <div
+            class="product-card"
+            data-id="prod-cat-003"
+            data-name="Hidratante Vitoria Secret"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Victoria's Secret Velvet Petals.jpg"
+              alt="Hidratante Vitoria Secret"
+              onerror="this.src='https://placehold.co/300x300?text=Vitoria+Secret'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Hidratante Vitoria Secret</h3>
+              <p class="product-price">R$ 70,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Hidratante Vitoria Secret"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Hidratante_Vitória_Secret.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- Categoria: Perfumes -->
+          <h3 class="category-title">Perfumes</h3>
+
+          <!-- BLOCO DO PRODUTO 3: Good Girl Carolina Errera -->
+          <div
+            class="product-card"
+            data-id="prod-cat-001"
+            data-name="Perfume Good Girl Carolina Errera"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume good girl contra tipo.jpg"
+              alt="Perfume Good Girl"
+              onerror="this.src='https://placehold.co/300x300?text=Good+Girl'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Good Girl Carolina Errera</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Good Girl"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a
+                href="perfumeGood_Girl_Carolina_Herr.html"
+                class="buy-now-btn"
+              >
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 4: Olympea -->
+          <div class="product-card" data-id="prod-new-009" data-name="Olympea">
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Olympia paco rabane legitimo.jpg"
+              alt="Perfume Olympea"
+              onerror="this.src='https://placehold.co/300x300?text=Olympea'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Olympea</h3>
+              <p class="product-price">R$ 525,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Olympea"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_olimpea_paco_rabane.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 5: Ferrari Black -->
+          <div
+            class="product-card"
+            data-id="prod-new-012"
+            data-name="Ferrari Black"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume ferrare black contratipo.jpg"
+              alt="Ferrari Black"
+              onerror="this.src='https://placehold.co/300x300?text=Ferrari+Black'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Ferrari Black</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Ferrari Black"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Ferrari_Black.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 6: AB THE SECRET -->
+          <div
+            class="product-card"
+            data-id="prod-new-013"
+            data-name="AB THE SECRET"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume Antonio Bandeiras the secret legitimo.jpg"
+              alt="AB THE SECRET"
+              onerror="this.src='https://placehold.co/300x300?text=The+Secret'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">AB THE SECRET</h3>
+              <p class="product-price">R$ 250,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume AB THE SECRET"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_AB_THE_SECRET.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 7: One Million Parfum -->
+          <div
+            class="product-card"
+            data-id="prod-cat-004"
+            data-name="Perfume One Million Parfum"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume 1 million parfum legitimo.jpg"
+              alt="One Million"
+              onerror="this.src='https://placehold.co/300x300?text=One+Million'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">One Million Parfum</h3>
+              <p class="product-price">R$ 524,50</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume One Million"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="pefume_one_milli_parfum.html" class="buy-now-btn"> Comprar </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 8: Perfume Bad Boy -->
+          <div
+            class="product-card"
+            data-id="prod-new-017"
+            data-name="Perfume Bad Boy"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Perfume Bad Boy Carolina Errera.jpg"
+              alt="Bad Boy"
+              onerror="this.src='https://placehold.co/300x300?text=Bad+Boy'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Bad Boy</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Bad Boy"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Bad_Boy_Carolina_Errera.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 9: Perfume Yara Lattafa -->
+          <div
+            class="product-card"
+            data-id="prod-new-018"
+            data-name="Perfume Yara latafa"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume yare latafa.jpg"
+              alt="Perfume Yara lattafa"
+              onerror="this.src='https://placehold.co/300x300?text=Yara'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Yara Lattafa</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Yara latafa"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Yara_Latafa_50_ml.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCO DO PRODUTO 10: Perfume Invictus Parfum -->
+          <div
+            class="product-card"
+            data-id="prod-new-019"
+            data-name="Perfume invictus parfum"
+          >
+            <a href="#" class="favorite-icon" aria-label="Favoritar">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Perfume invictus parfum.jpg"
+              alt="Perfume Invictus Parfum"
+              onerror="this.src='https://placehold.co/300x300?text=Invictus'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Invictus Parfum</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Invictus"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Invictus_Parfum.html" class="buy-now-btn">
+                Comprar
+              </a>
+            </div>
+          </div>
+ <!-- PRODUTO 11: 212 Men Vip Wins -->
+          <div
+            class="product-card"
+            data-id="prod-new-020"
+            data-name="Perfume 212 Mem vip wins"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <!-- Uso de placeholder onerror para evitar imagem quebrada se o arquivo local não existir -->
+            <img 
+              src="Perfume 212 Mem vip wins.jpg" 
+              alt="212 Men Vip Wins" 
+              onerror="this.src='https://placehold.co/300x300?text=212+VIP+Wins'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume 212 Vip Men wins</h3>
+              <p class="product-price">R$ 60,00</p>
+              <!-- Botão WhatsApp: Link direto para API e classe atualizada para responsividade -->
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume 212 Vip Men wins"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_212_Men_VIP_Wins_Contra_Tipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 12: Sauvage Dior -->
+          <div
+            class="product-card"
+            data-id="prod-sauvage-dior"
+            data-name="Perfume Sauvage Dior"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume sauvage contra tipo.jpg"
+              alt="Perfume Sauvage Dior"
+              onerror="this.src='https://placehold.co/300x300?text=Sauvage+Dior';"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Sauvage Dior</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Sauvage Dior"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="perfume_Sauvage_Dior_50ml.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 13: Lattafa Fakhar -->
+          <div
+            class="product-card"
+            data-id="prod-lattafa-fakhar"
+            data-name="Perfume Lattafa Fakhar 50ml"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img 
+              src="Perfume Latafa Fakhar.jpg" 
+              alt="Perfume Lattafa Fakhar" 
+              onerror="this.src='https://placehold.co/300x300?text=Lattafa+Fakhar'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Lattafa Fakhar Contra Tipo 50ml</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Lattafa Fakhar"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Lattafa_Fakhar.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 14: Dolce & Gabbana Pour -->
+          <div
+            class="product-card"
+            data-id="prod-dolce-gabbana"
+            data-name="Perfume Dolce & Gabbana Pour"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img 
+              src="Dolce & Gabbana.jpg" 
+              alt="Dolce & Gabbana" 
+              onerror="this.src='https://placehold.co/300x300?text=Dolce+Gabbana'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Dolce & Gabbana Pour</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Perfume Dolce & Gabbana"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Dulce_Gabana.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 15: Azzaro Pour Homme -->
+          <div
+            class="product-card"
+            data-id="prod-azzaro-pour-homme"
+            data-name="Perfume Azzaro Pour Homme Wante Contra Tipo 50ml"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Perfume Azzaro POUR HOMME contra tipo.jpg"
+              alt="Azzaro Pour Homme"
+              onerror="this.src='https://placehold.co/300x300?text=Azzaro+Pour+Homme'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Azzaro Pour Homme Wante Contra Tipo 50ml</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Azzaro Pour Homme"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Azzaro_Pour_Homme_Wante_Contra_Tipo_50ml.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 16: Scuderia Ferrari -->
+          <div
+            class="product-card"
+            data-id="prod-scuderia-ferrari"
+            data-name="Perfume Scuderia Ferrare Contra Tipo 50ml"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume scuderia ferrare contratipo.jpg"
+              alt="Scuderia Ferrari"
+              onerror="this.src='https://placehold.co/300x300?text=Scuderia+Ferrari'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Scuderia Ferrare Contra Tipo 50ml</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Scuderia Ferrari"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Scuderia_Ferrare.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 17: Scandal Jean Paul -->
+          <div
+            class="product-card"
+            data-id="prod-scandal-jean-paul"
+            data-name="Perfume Scandal Jean Paul"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume Scandal Jean Paul.jpg"
+              alt="Scandal Jean Paul"
+              onerror="this.src='https://placehold.co/300x300?text=Scandal+Jean+Paul'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Scandal Jean Paul</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no Scandal Jean Paul"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="scandal_jeanspaul.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 18: CK One -->
+          <div
+            class="product-card"
+            data-id="prod-ck-one-contratipo"
+            data-name="Perfume CK One Contra Tipo"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume ck one contra tipo.jpg"
+              alt="CK One"
+              onerror="this.src='https://placehold.co/300x300?text=CK+One'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume CK One Contra Tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no CK One"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_CK_One_Contratipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 19: 1 Million Luck -->
+          <div
+            class="product-card"
+            data-id="prod-1-million-luck"
+            data-name="Perfume 1 Million Luck Contra Tipo"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume 1 millio luck contratipo.jpg"
+              alt="1 Million Luck"
+              onerror="this.src='https://placehold.co/300x300?text=1+Million+Luck'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume 1 Milion Luck Contra Tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="https://wa.me/552198092293?text=Olá, tenho interesse no 1 Million Luck"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="perfume_1_milio_luck_Contra_Tipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- PRODUTO 20: Acqua di Gio -->
+          <div
+            class="product-card"
+            data-id="prod-acqua-di-gio"
+            data-name="Perfume ACQUA DI Giò contra tipo"
+            data-price="60.00"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="perfume aqua di gio contra tipo.jpg"
+              alt="Acqua di Gio"
+              onerror="this.src='https://placehold.co/300x300?text=Acqua+Di+Gio'"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Perfume ACQUA DI Giò contra tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a
+                href="http://wa.me/552198092293?text=Olá, tenho interesse no Acqua Di Gio"
+                class="whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Aqua_di_Gio_ContraTipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+ <!-- 1. Produto: Chloè EAU de Parfum Contratipo -->
+          <div
+            class="product-card"
+            data-id="prod-chloe-edp"
+            data-name="Chloè EAU de Parfum Contra tipo"
+            data-price="60.00"
+            data-image="perfume cloé contratipo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume cloé contratipo.jpg" alt="Chloè EAU de Parfum" onerror="this.src='https://placehold.co/300x300?text=Chloè'" />
+            <div class="product-info">
+              <h3 class="product-name">Chloè EAU de Parfum Contra tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta e link dinâmico -->
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Chloè EAU de Parfum" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Chloé_Contratipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 2. Produto: Perfume Invictus Legende -->
+          <div
+            class="product-card"
+            data-id="prod-invictus-legende"
+            data-name="Perfume Invictus legende"
+            data-price="60.00"
+            data-image="perfume invictus legende.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume invictus legende.jpg" alt="Invictus Legende" onerror="this.src='https://placehold.co/300x300?text=Invictus'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Invictus Legende</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Invictus Legende" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="perfume_Invictus_Legend_Paco_R.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 3. Produto: Perfume 212 Men NYC -->
+          <div
+            class="product-card"
+            data-id="prod-212-men-nyc"
+            data-name="Perfume 212 Men NYC"
+            data-price="565.80"
+            data-image="Perfume 212 MEN NYC.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="Perfume 212 MEN NYC.jpg" alt="212 Men NYC" onerror="this.src='https://placehold.co/300x300?text=212+Men+NYC'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume 212 Men NYC</h3>
+              <p class="product-price">R$ 565,80</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no 212 Men NYC" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_212_Men_NYC_200ml_legitimo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 4. Produto: Perfume CK One Legitimo -->
+          <div
+            class="product-card"
+            data-id="prod-cat-005"
+            data-name="Perfume CK One Legitimo"
+            data-price="80.00"
+            data-image="perfume CK one legitimo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume CK one legitimo.jpg" alt="CK One" onerror="this.src='https://placehold.co/300x300?text=CK+One'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume CK One Legitimo</h3>
+              <p class="product-price">R$ 390,90</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no CK One" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="CK One 200ml.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 5. Produto: Perfume Angel Contra Tipo -->
+          <div
+            class="product-card"
+            data-id="prod-cat-006"
+            data-name="Perfume Angel Contra Tipo"
+            data-price="105.50"
+            data-image="perfume angel contratipo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume angel contratipo.jpg" alt="Angel Contratipo" onerror="this.src='https://placehold.co/300x300?text=Angel'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume Angel Contra Tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Angel Contra Tipo" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="fume_angel_contra_tipo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 6. Produto: Perfume One Million Royal -->
+          <div
+            class="product-card"
+            data-id="prod-cat-007"
+            data-name="Perfume One-million-royal"
+            data-price="25.00"
+            data-image="Perfume_1_Miller_Royal.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="Perfume_1_Miller_Royal.jpg" alt="One Million Royal" onerror="this.src='https://placehold.co/300x300?text=One+Million'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume One-million-royal</h3>
+              <p class="product-price">R$ 548,60</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no One Million Royal" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="one_million_royale.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 7. Produto: Perfume 212 MEN -->
+          <div
+            class="product-card"
+            data-id="prod-cat-008"
+            data-name="Perfume 212 MEN"
+            data-price="199.90"
+            data-image="212 Men Carolina Herrera.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="212 Men Carolina Herrera.jpg" alt="212 Men" onerror="this.src='https://placehold.co/300x300?text=212+Men'" />
+            <div class="product-info">
+              <h3 class="product-name">Perfume 212 MEN</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no 212 Men" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_212Men_Carolina_Errera.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 8. Produto: For Mem Blue Seduction -->
+          <div
+            class="product-card"
+            data-id="prod-new-001"
+            data-name="For Mem Blue Seduction"
+            data-price="60.00"
+            data-image="perfume for men blue seduction contratipo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume for men blue seduction contratipo.jpg" alt="Blue Seduction" onerror="this.src='https://placehold.co/300x300?text=Blue+Seduction'" />
+            <div class="product-info">
+              <h3 class="product-name">For Mem Blue Seduction</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Blue Seduction" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_For_Mem_BlueSeduction.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 9. Produto: Azzaro Wanted - Contra tipo -->
+          <div
+            class="product-card"
+            data-id="prod-new-002"
+            data-name="Azzaro Wanted-Contra tipo"
+            data-price="60.00"
+            data-image="perfume azarro wanted contra tipo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="perfume azarro wanted contra tipo.jpg" alt="Azzaro Wanted" onerror="this.src='https://placehold.co/300x300?text=Azzaro'" />
+            <div class="product-info">
+              <h3 class="product-name">Azzaro Wanted-Contra tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Azzaro Wanted" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="perfume_Azzaro_Wanted_50ml.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- 10. Produto: Flower by Kenzo - Contra tipo -->
+          <div
+            class="product-card"
+            data-id="prod-new-004"
+            data-name="Flower by kenzo-contra tipo"
+            data-price="60.00"
+            data-image="flouer by kenzo contra tipo.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="flouer by kenzo contra tipo.jpg" alt="Flower by Kenzo" onerror="this.src='https://placehold.co/300x300?text=Flower+by+Kenzo'" />
+            <div class="product-info">
+              <h3 class="product-name">Flower by kenzo-contra tipo</h3>
+              <p class="product-price">R$ 60,00</p>
+              <a href="https://wa.me/552198092293?text=Olá, tenho interesse no Flower by Kenzo" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Perfume_Flower_be_Kenzo_-Kenzo.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+          <!-- Título da Categoria Tênis -->
+          <h3 class="category-title">Tênis</h3>
+
+          <!-- 11. Produto: Air Force -->
+          <div
+            class="product-card"
+            data-id="prod-new-006"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="Tênis Preto e Braco.jpg"
+          >
+            <a href="#" class="favorite-icon" aria-label="Adicionar aos Favoritos">
+                <i class="far fa-heart"></i>
+            </a>
+            <img src="Tênis Preto e Braco.jpg" alt="Air force" onerror="this.src='https://placehold.co/300x300?text=Air+Force'" />
+            <div class="product-info">
+              <h3 class="product-name">Tênis Air Force Preto e Branco</h3>
+              <p class="product-price">R$ 150,00</p>
+              <a href="http://wa.me/552198092293?" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="Tênis_AIR_force_Branco_Preto.html" class="buy-now-btn">Comprar</a>
+            </div>
+          </div>
+
+
+          <!-- 32. Produto: Air force Branco e Cinza -->
+          <div
+            class="product-card"
+            data-id="prod-new-007"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="tênis branco e ciza.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="tênis branco e ciza.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+BC'" alt="Air force" />
+            <div class="product-info">
+                <h3 class="product-name">Tênis Air Force Branco e Cinza</h3>
+                <p class="product-price">R$ 150,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Tênis_Branco_e_cinza.html" class="buy-now-btn nav-link"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 33. Produto: Air Force Branco Cinza e Verdecom Bosa -->
+          <div
+            class="product-card"
+            data-id="prod-new-008b"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="Tênis  brnco e rosa.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="tênes cinza e verde.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+Rosa'" alt="Air force" />
+            <div class="product-info">
+                <h3 class="product-name">Tênis Air Force Cinza Branco e Verde</h3>
+                <p class="product-price">R$ 150,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="tênia_cinza_e_verde.html" class="buy-now-btn">Comprar</a>
+                
+            </div>
+          </div>
+
+
+
+           <!-- 34. Produto: Air Force Branco com Bosa -->
+          <div
+            class="product-card"
+            data-id="prod-new-008c"
+            data-name="Air force"
+            data-price="150.00"
+            data-image="Tênis  brnco e rosa.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="Tênis  brnco e rosa.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+Rosa'" alt="Air force" />
+            <div class="product-info">
+                <h3 class="product-name">Tênis Air Force Branco com Bosa</h3>
+                <p class="product-price">R$ 150,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="tênis_Branco_e_Rosa.html" class="buy-now-btn">Comprar</a>
+                
+            </div>
+          </div>
+
+          <!-- 34. Produto: Air Force Marrom -->
+          <div
+            class="product-card"
+            data-id="prod-new-011"
+            data-name="Air Force"
+            data-price="150.00"
+            data-image="Tênis marrom.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="Tênis marrom.jpg" onerror="this.src='https://placehold.co/300x300?text=Air+Force+Marrom'" alt="Air Force Marrom" />
+            <div class="product-info">
+                <h3 class="product-name">Tênis Air Force Marrom</h3>
+                <p class="product-price">R$ 150,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="tênis_marron.html" class="buy-now-btn nav-link"
+                >Comprar</a
+                >
+            </div>
+          </div>
+            
+          <!-- Título da Categoria Relógios e Acessórios -->
+          <h3 class="category-title">Relógios e Acessórios</h3>
+
+          <!-- 35. Produto: Smart watch 8 Pro -->
+          <div
+            class="product-card"
+            data-id="prod-new-003"
+            data-name="Smart watch 8 Pro"
+            data-price="135.00"
+            data-image="Relógio Smart Watch 8 plus 1 - Copia.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img
+                src="relogio Smart watch 8.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+8'"
+                alt="Smart watch 9 Pro"
+            />
+            <div class="product-info">
+                <h3 class="product-name">Relógio  Smart watch 8 Pro</h3>
+                <p class="product-price">R$ 135,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
+                href="Relogio_Smart_Watch_8_Pro.html"
+                class="buy-now-btn"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 36. Produto: Microwear RUN2 -->
+          <div
+            class="product-card"
+            data-id="prod-new-014"
+            data-name="Microwear RUN2"
+            data-price="200.00"
+            data-image="Relogio microwear Run2.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="Relogio microwear Run2.jpg" onerror="this.src='https://placehold.co/300x300?text=Microwear+Run2'" alt="Microwear RUN2" />
+            <div class="product-info">
+                <h3 class="product-name">Relógio Microwear RUN2</h3>
+                <p class="product-price">R$ 200,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relógio_micro_Rum.html" class="buy-now-btn nav-link"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 37. Produto: Smart watch ultra 9 plus -->
+          <div
+            class="product-card"
+            data-id="prod-new-015"
+            data-name="Smart watch ultra 9 plus"
+            data-price="170.00"
+            data-image="Relogio microwear ultra 9.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img
+                src="Relogio microwear ultra 9.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Ultra+9+Plus'"
+                alt="Smart watch ultra 9 plus"
+            />
+            <div class="product-info">
+                <h3 class="product-name">Relógio Smart watch ultra 9 plus</h3>
+                <p class="product-price">R$ 170,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
+                href="Relógio_Smart_Watch_9_Plus.html"
+                class="buy-now-btn"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 38. Produto: Relógio Microwear ultramani -->
+          <div
+            class="product-card"
+            data-id="prod-microwear-ultramani"
+            data-name="Relogio microwear ultramani"
+            data-price="190.00"
+            data-image="Relogio microwear ultramani200.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img
+                src="relogio microwear ultramani200.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Ultramani'"
+                alt="Imagem do Produto 2"
+            />
+            <div class="product-info">
+                <h3 class="product-name">Relogio microwear ultramani</h3>
+                <p class="product-price">R$ 190,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
+                href="http://127.0.0.1:3000/relogio_microwear_ultramani200.html?serverWindowId=47361ac8-f25b-4b9e-8e33-7201b9edacd2"
+                class="buy-now-btn"
+                >Comprar</a>
+                </div>
+          </div>
+    
+          <!-- 39. Produto: Relógio W69 ultra -->
+          <div
+            class="product-card"
+            data-id="prod-new-005"
+            data-name="W69 ultra"
+            data-price="180.00"
+            data-image="Relógio w69 utra.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="Relógio w69 utra.jpg" onerror="this.src='https://placehold.co/300x300?text=W69+Ultra'" alt="W69 ultra" />
+            <div class="product-info">
+                <h3 class="product-name">W69 ultra</h3>
+                <p class="product-price">R$ 180,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relógio_W69_Ultra.html" class="buy-now-btn nav-link"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 40. Produto: Pulcera lisa -->
+          <div
+            class="product-card"
+            data-id="prod-new-010"
+            data-name="One Million Royal"
+            data-price="548.60"
+            data-image="pulcera lisa.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img src="pulcera lisa.jpg" onerror="this.src='https://placehold.co/300x300?text=Pulseira'" alt="Pulcera lisa" />
+            <div class="product-info">
+                <h3 class="product-name">Pulcera lisa</h3>
+                <p class="product-price">R$ 15,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a
+                href="Pulceira_para_relogio.html"
+                class="buy-now-btn"
+                >Comprar</a
+                >
+            </div>
+          </div>
+
+          <!-- 41. Produto: Relógio Smart watch ultra gold 24k -->
+          <div
+            class="product-card"
+            data-id="prod-new-016"
+            data-name="Smart watch ultra gold 24k"
+            data-price="180.00"
+            data-image="relógio ultra mini gold smart watch.jpg"
+            >
+            <a
+                href="#"
+                class="favorite-icon"
+                aria-label="Adicionar aos Favoritos"
+                ><i class="far fa-heart"></i
+            ></a>
+            <img
+                src="relógio ultra mini gold smart watch.jpg"
+                onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+Gold'"
+                alt="Smart watch ultra gold"
+            />
+            <div class="product-info">
+                <h3 class="product-name">Relógio Smart watch ultra gold 24k</h3>
+                <p class="product-price">R$ 180,00</p>
+                <!-- Botão WhatsApp corrigido com classe correta -->
+                <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="Relógio_ultra_Gold_24k.html" class="buy-now-btn nav-link"
+                >Comprar</a
+                >
+            </div>
+          </div>
+        </div>
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>Categorias</h4>
+            <!-- Corrigido erro de aninhamento de UL que havia no código original -->
+            <ul class="list-unstyled">
+              <li><a href="index_Logado.html">Início</a></li>
+              <li><a href="catalogo_de_produtos.html">Produtos</a></li>
+              <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Links Úteis</h4>
+            <ul class="list-unstyled">
+              <li><a href="sobre_Nois.html">Sobre Nós</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <!-- Corrigidos links com barras invertidas -->
+              <li><a href="Politicas_de_privacidade.html">Política de Privacidade</a></li>
+              <li><a href="Termos_de_Uso.html">Termos de Serviço</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Fique Conectado</h4>
+            <div class="social-icons">
+              <a href="http://www.facebook.com/Copains Pv"><i class="fab fa-facebook-f"></i></a>
+              <a href="http://www.instagram.com/Copains.pv"><i class="fab fa-instagram"></i></a>
+              <a href="http://wa.me/552198092293"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="mb-0">&copy; 2024 Copains. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT: Lógica de Busca e Menu Mobile         -->
+    <!-- ================================================= -->
+    <script>
+      /**
+       * Função Principal executada quando o DOM estiver carregado.
+       * Contém:
+       * 1. Lógica do Menu Hamburger (Mobile).
+       * 2. Lógica do Filtro de Pesquisa.
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        
+        // --- 1. LÓGICA DO MENU MOBILE ---
+        // Seleciona o botão hamburger e a lista de links
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const navLinks = document.getElementById("mobile-menu");
+        // Se os elementos existirem, adiciona o evento de clique
+        if (hamburgerBtn && navLinks) {
+            hamburgerBtn.addEventListener("click", () => {
+                // Alterna a classe 'active' que move o menu da esquerda para a tela
+                navLinks.classList.toggle("active");
+            });
+        }
+        // --- 2. LÓGICA DE PESQUISA (FILTRO) ---
+        const searchInput = document.getElementById("catalog-search-input");
+        const productGrid = document.querySelector(".product-grid");
+        
+        // Seleciona tanto os cards de produto quanto os títulos de categoria
+        const allItems = productGrid.querySelectorAll(".product-card, .category-title");
+        const categoryTitles = productGrid.querySelectorAll(".category-title");
+        if (searchInput) {
+          // Adiciona um "ouvinte" para detectar digitação no campo de busca
+          searchInput.addEventListener("input", () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            // Passo A: Filtra os produtos
+            productGrid.querySelectorAll(".product-card").forEach((card) => {
+              // Obtém o nome do produto do atributo data-name
+              const productName = (card.dataset.name || "").toLowerCase();
+              // Verifica se o nome contém o termo pesquisado
+              if (productName.includes(searchTerm)) {
+                card.style.display = "flex"; // Mostra o card
+              } else {
+                card.style.display = "none"; // Esconde o card
+              }
+            });
+            
+            // Passo B: Gerencia a visibilidade dos títulos das categorias
+            // Esconde títulos de categoria se não houver produtos visíveis abaixo dele
+            categoryTitles.forEach(title => {
+                let nextElement = title.nextElementSibling;
+                let hasVisibleProducts = false;
+                
+                // Verifica os elementos irmãos seguintes até encontrar o próximo título ou o fim
+                while(nextElement && !nextElement.classList.contains('category-title')) {
+                    if (nextElement.classList.contains('product-card') && nextElement.style.display !== 'none') {
+                        hasVisibleProducts = true;
+                        break; // Encontrou um produto visível, mantém o título
+                    }
+                    nextElement = nextElement.nextElementSibling;
+                }
+                // Exibe ou oculta o título da categoria baseado nos produtos
+                title.style.display = hasVisibleProducts ? 'block' : 'none';
+            });
+          });
+        }
+      });
+    </script>
+    <script>
+      // FAVORITOS: Lógica para catálogo (mesma implementação usada em TESTE.HTML)
+      (function () {
+        const FAVORITES_KEY = 'favorites';
+        function getFavorites() { try { return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || []; } catch(e) { return []; } }
+        function saveFavorites(favs) { localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs)); }
+        function updateFavoritesCount() { const count = getFavorites().length; const countEl = document.getElementById('favorites-count'); if (countEl) { countEl.textContent = count; if (count > 0) countEl.classList.remove('hidden'); else countEl.classList.add('hidden'); } }
+        function isFavoriteId(id) { if (!id) return false; return getFavorites().some(p => p.id === id); }
+        function toggleFavorite(product) { if (!product || !product.id) return; let favs = getFavorites(); const exists = favs.find(p => p.id === product.id); if (exists) favs = favs.filter(p => p.id !== product.id); else favs.push({ id: product.id, name: product.name, price: product.price, image: product.image, link: product.link }); saveFavorites(favs); updateFavoritesCount(); }
+        function updateStoreIcons(){
+          document.querySelectorAll('.product-card').forEach(card => {
+            const id = card.dataset.id;
+            const icon = card.querySelector('.favorite-icon');
+            const heart = icon && icon.querySelector('i');
+            if (!icon || !heart) return;
+            // Ensure accessibility attributes are present
+            icon.setAttribute('role', 'button');
+            icon.setAttribute('tabindex', '0');
+
+            if (id && isFavoriteId(id)) {
+              icon.classList.add('active');
+              heart.classList.remove('far');
+              heart.classList.add('fas');
+              icon.setAttribute('aria-pressed', 'true');
+              icon.setAttribute('title', 'Remover dos Favoritos');
+            } else {
+              icon.classList.remove('active');
+              heart.classList.remove('fas');
+              heart.classList.add('far');
+              icon.setAttribute('aria-pressed', 'false');
+              icon.setAttribute('title', 'Adicionar aos Favoritos');
+            }
+          });
+        }
+        function bindFavoriteButtons(){
+          document.querySelectorAll('.product-card .favorite-icon').forEach(iconEl => {
+            if (iconEl.__favoriteBound) return;
+            iconEl.__favoriteBound = true;
+
+            // Ensure keyboard accessibility (Enter / Space)
+            iconEl.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                iconEl.click();
+              }
+            });
+
+            iconEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const card = iconEl.closest('.product-card');
+              if (!card) return;
+              const buyBtn = card.querySelector('.buy-now-btn');
+              const whatsBtn = card.querySelector('.whatsapp-btn');
+              const productPageLink = card.querySelector('a[href]:not(.favorite-icon):not(.whatsapp-btn):not(.buy-now-btn)');
+              const product = {
+                id: card.dataset.id || (card.dataset.name ? `id-${card.dataset.name}` : null),
+                name: card.dataset.name || card.querySelector('.product-name')?.textContent?.trim(),
+                price: card.dataset.price || card.querySelector('.product-price')?.textContent?.trim(),
+                image: card.querySelector('img')?.src || '',
+                // Prefer buy button link, fallback to whatsapp or product page link
+                link: (buyBtn && buyBtn.href) || (whatsBtn && whatsBtn.href) || (productPageLink && productPageLink.href) || ''
+              };
+              toggleFavorite(product);
+              updateStoreIcons();
+            });
+          });
+        }
+        document.addEventListener('DOMContentLoaded', () => { bindFavoriteButtons(); updateStoreIcons(); updateFavoritesCount(); });
+        window.addEventListener('storage', (e) => { if (e.key === 'favorites') { updateStoreIcons(); updateFavoritesCount(); } });
+      })();
+    </script>
+  </body>
+</html>
+       
+        
+
+
+
