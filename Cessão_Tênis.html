@@ -2,19 +2,14 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <!-- Meta tag essencial para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Copains - Moda e Estilo</title>
-    
-    <!-- Importação de Fontes do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
       rel="stylesheet"
     />
-    
-    <!-- Importação de Ícones (Font Awesome) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -22,53 +17,46 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
     <style>
-      /* ================================================= */
-      /* ESTILIZAÇÃO CSS (Design e Layout)                 */
-      /* ================================================= */
-      
-      /* Variáveis globais para facilitar a manutenção das cores */
+      /* ======================= */
+      /* RESET E GLOBAIS         */
+      /* ======================= */
       :root {
         --primary-color: #ff6f61;
         --dark-color: #111111;
         --light-color: #ffffff;
         --text-color: #333;
         --gray-light: #f4f4f4;
-        --whatsapp-green: #25d366; /* Cor oficial do WhatsApp */
-        --whatsapp-dark: #128c7e;  /* Cor hover do WhatsApp */
+        --whatsapp-green: #25d366;
+        --whatsapp-dark: #128c7e;
       }
-
-      /* Reset básico para remover margens padrão dos navegadores */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
         font-family: "Montserrat", sans-serif;
         color: var(--text-color);
         background-color: var(--light-color);
-        padding-top: 80px; /* Espaço para o header fixo não cobrir o conteúdo */
+        padding-top: 80px;
       }
-
       a {
         text-decoration: none;
         color: inherit;
       }
-
       ul {
         list-style: none;
       }
-
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
       }
 
-      /* --- HEADER / BARRA DE NAVEGAÇÃO --- */
+      /* ======================= */
+      /* HEADER / NAVEGAÇÃO      */
+      /* ======================= */
       .header {
         position: fixed;
         top: 0;
@@ -83,44 +71,35 @@
         padding: 1rem 2rem;
         height: 80px;
       }
-
       .header .logo {
         font-size: 1.8rem;
         font-weight: 700;
         font-style: italic;
         color: var(--dark-color);
       }
-
       .header .nav-links {
         display: flex;
         gap: 2.5rem;
       }
-
       .header .nav-links a {
         font-weight: 600;
         transition: color 0.3s ease;
       }
-
       .header .nav-links a:hover {
         color: var(--primary-color);
       }
-
       .header .nav-icons {
         display: flex;
         align-items: center;
         gap: 1.5rem;
       }
-
       .header .nav-icons a {
         font-size: 1.2rem;
         transition: color 0.3s ease;
       }
-
       .header .nav-icons a:hover {
         color: var(--primary-color);
       }
-
-      /* Botão Hamburger (Só aparece no mobile via Media Query) */
       .hamburger {
         display: none;
         font-size: 1.5rem;
@@ -136,7 +115,6 @@
         display: flex;
         align-items: center;
       }
-
       .search-input {
         padding: 0.5rem 1rem 0.5rem 2.5rem;
         border: 1px solid #ddd;
@@ -144,20 +122,20 @@
         width: 250px;
         transition: width 0.3s ease-in-out;
       }
-
       .search-icon {
         position: absolute;
         left: 1rem;
         color: #aaa;
       }
 
-      /* --- FILTRO DE PESQUISA (Centro da página) --- */
+      /* ======================= */
+      /* FILTRO DE PESQUISA      */
+      /* ======================= */
       .catalog-search-container {
         position: relative;
         margin: 0 auto 3rem;
         max-width: 500px;
       }
-
       #catalog-search-input {
         width: 100%;
         padding: 0.75rem 1.5rem 0.75rem 3.5rem;
@@ -166,7 +144,6 @@
         font-size: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
       }
-
       .catalog-search-icon {
         position: absolute;
         left: 1.5rem;
@@ -175,7 +152,9 @@
         color: #aaa;
       }
 
-      /* --- SEÇÃO HERO (BANNER PRINCIPAL) --- */
+      /* ======================= */
+      /* SEÇÃO HERO (BANNER)     */
+      /* ======================= */
       .hero {
         display: flex;
         justify-content: center;
@@ -184,12 +163,9 @@
         color: var(--light-color);
         text-align: center;
         position: relative;
-        /* Imagem de fundo */
         background: url("https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop")
           no-repeat center center/cover;
       }
-
-      /* Camada escura sobre a imagem (Overlay) */
       .hero::before {
         content: "";
         position: absolute;
@@ -199,18 +175,15 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.4);
       }
-
       .hero-content {
         position: relative;
         z-index: 1;
       }
-
       .hero h1 {
         font-size: 3.5rem;
         margin-bottom: 1rem;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
       }
-
       .hero p {
         font-size: 1.2rem;
         margin-bottom: 2rem;
@@ -218,7 +191,6 @@
         margin-left: auto;
         margin-right: auto;
       }
-
       .cta-button {
         background-color: var(--primary-color);
         color: var(--light-color);
@@ -231,26 +203,25 @@
         transition: background-color 0.3s ease, transform 0.3s ease;
         display: inline-block;
       }
-
       .cta-button:hover {
         background-color: #e65a50;
         transform: translateY(-3px);
       }
 
-      /* --- CATÁLOGO DE PRODUTOS --- */
+      /* ======================= */
+      /* CATÁLOGO DE PRODUTOS    */
+      /* ======================= */
       .product-catalog {
         padding: 5rem 0;
       }
-
       .product-catalog h2 {
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 3rem;
         color: var(--dark-color);
       }
-
       .category-title {
-        grid-column: 1 / -1; /* Ocupa toda a largura do grid */
+        grid-column: 1 / -1;
         text-align: center;
         font-size: 2rem;
         font-weight: 700;
@@ -259,14 +230,11 @@
         border-bottom: 2px solid var(--gray-light);
         padding-bottom: 0.5rem;
       }
-
       .product-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 2rem;
       }
-
-      /* Estilo do Cartão do Produto */
       .product-card {
         background: var(--light-color);
         border: 1px solid #eee;
@@ -279,19 +247,16 @@
         display: flex;
         flex-direction: column;
       }
-
       .product-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       }
-
       .product-card img {
         width: 100%;
         height: 300px;
         object-fit: cover;
         display: block;
       }
-
       .product-info {
         padding: 1.5rem;
         display: flex;
@@ -299,22 +264,18 @@
         flex-grow: 1;
         justify-content: flex-end;
       }
-
       .product-name {
         font-weight: 700;
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
       }
-
       .product-price {
         color: var(--text-color);
         font-size: 1rem;
         margin-bottom: 1rem;
       }
 
-      /* --- BOTÕES DE AÇÃO --- */
-      
-      /* Botão WhatsApp Responsivo */
+      /* Botões de Ação */
       .whatsapp-btn {
         background-color: var(--whatsapp-green);
         color: var(--light-color);
@@ -322,22 +283,17 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px; /* Espaço entre ícone e texto */
-        width: 100%; /* Garante que ocupe a largura total do container */
+        display: block;
+        width: 100%;
         font-weight: 600;
         transition: background-color 0.3s ease;
+        text-align: center;
         text-decoration: none;
         margin-bottom: 0.5rem;
       }
-
       .whatsapp-btn:hover {
         background-color: var(--whatsapp-dark);
-        color: white;
       }
-
       .buy-now-btn {
         background-color: #e65a50;
         color: var(--light-color);
@@ -351,12 +307,11 @@
         transition: background-color 0.3s ease;
         text-align: center;
       }
-
       .buy-now-btn:hover {
         background-color: #d34a40;
       }
 
-      /* Ícone Favorito (Coração) */
+      /* Ícone Favorito */
       .favorite-icon {
         position: absolute;
         top: 1rem;
@@ -373,57 +328,58 @@
         align-items: center;
         justify-content: center;
       }
-
       .favorite-icon:hover {
         color: var(--primary-color);
         background: #fff;
       }
+      /* Estado quando favoritado */
+      .favorite-icon.favorited i {
+        color: #d34a40 !important;
+      }
+      .favorite-icon.favorited {
+        background: rgba(211, 74, 64, 0.08);
+        border: 1px solid rgba(211, 74, 64, 0.2);
+      }
 
-      /* --- RODAPÉ (FOOTER) --- */
+      /* ======================= */
+      /* RODAPÉ (FOOTER)         */
+      /* ======================= */
       .footer {
         background-color: var(--dark-color);
         color: var(--gray-light);
         padding: 4rem 0 2rem;
         margin-top: 4rem;
       }
-
       .footer-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         margin-bottom: 3rem;
       }
-
       .footer-column h4 {
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
         color: var(--light-color);
       }
-
       .footer-column ul li {
         margin-bottom: 0.75rem;
       }
-
       .footer-column ul a {
         color: #ccc;
         transition: color 0.3s ease;
       }
-
       .footer-column ul a:hover {
         color: var(--primary-color);
       }
-
       .social-icons a {
         font-size: 1.5rem;
         margin-right: 1rem;
         color: #ccc;
         transition: color 0.3s ease;
       }
-
       .social-icons a:hover {
         color: var(--primary-color);
       }
-
       .footer-bottom {
         text-align: center;
         padding-top: 2rem;
@@ -432,28 +388,27 @@
         color: #aaa;
       }
 
-      /* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+      /* ======================= */
+      /* RESPONSIVIDADE          */
+      /* ======================= */
       @media (max-width: 992px) {
         .product-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
-
       @media (max-width: 768px) {
         body {
           padding-top: 70px;
         }
-
         .header {
           height: 70px;
           padding: 1rem;
         }
-
-        /* Menu Mobile - Transformação para gaveta lateral/overlay */
+        /* Menu Mobile */
         .header .nav-links {
           position: fixed;
           top: 70px;
-          left: -100%; /* Escondido à esquerda inicialmente */
+          left: -100%;
           width: 100%;
           height: calc(100vh - 70px);
           background-color: var(--light-color);
@@ -464,44 +419,34 @@
           transition: left 0.3s ease-in-out;
           box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         }
-
-        /* Classe que o JS adiciona para mostrar o menu */
         .header .nav-links.active {
           left: 0;
         }
-
         .header .nav-links a {
           font-size: 1.5rem;
         }
-
         .hamburger {
-          display: block; /* Mostra o botão hamburger no mobile */
+          display: block;
           z-index: 1001;
         }
-
         .header .search-container {
-          display: none; /* Esconde a busca do header no mobile para poupar espaço */
+          display: none;
         }
-
         .hero h1 {
           font-size: 2.5rem;
         }
-
         .hero p {
           font-size: 1rem;
         }
-
         .footer-grid {
           grid-template-columns: 1fr;
           text-align: center;
         }
-
         .social-icons {
           text-align: center;
           margin-top: 1rem;
         }
       }
-
       @media (max-width: 576px) {
         .product-grid {
           grid-template-columns: 1fr;
@@ -519,24 +464,17 @@
       <nav>
         <ul class="nav-links" id="mobile-menu">
           <li><a href="index_Logado.html">Início</a></li>
+          <li><a href="catalogo_de_produtos.html">Produto</a></li>
           <li><a href="favoritos.html">Favoritos</a></li>
           <li><a href="index.html">Sair</a></li>
         </ul>
       </nav>
-      <div class="search-container">
-        <i class="fas fa-search search-icon"></i>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Buscar produtos..."
-        />
-      </div>
+     
       <div class="nav-icons">
         <a href="area_do_usuario.html" aria-label="Conta do usuário">
           <i class="fas fa-user"></i>
         </a>
       </div>
-      <!-- Botão Hamburger para Mobile -->
       <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
         <i class="fas fa-bars"></i>
       </button>
@@ -548,15 +486,13 @@
         <div class="hero-content">
           <h1>Mas Chegados Que Irmãos</h1>
           <p>Estilo e conforto para seus dias.</p>
-          <a href="#catalogo" class="cta-button">Seja Bem-Vindo</a>
+          <a href="catalogo_de_produtos.html" class="cta-button">Seja Bem-Vindo</a>
         </div>
       </section>
 
-      <!-- CATÁLOGO -->
-      <section id="catalogo" class="product-catalog container">
-        <h2>Nosso Catálogo</h2>
-        
-        <!-- Input de Pesquisa do Catálogo -->
+      <section class="product-catalog container">
+        <h2>Tênis</h2>
+        <!-- Barra de Pesquisa do Catálogo -->
         <div class="catalog-search-container">
           <i class="fas fa-search catalog-search-icon"></i>
           <input
@@ -567,10 +503,10 @@
         </div>
 
         <div class="product-grid">
-          <!-- Categoria: Hidratantes / Perfumes -->
-          <h3 class="category-title">Perfumes e Hidratantes</h3>
+          <!-- Título da Categoria Tênis -->
+          <h3 class="category-title">Tênis</h3>
 
-          <!-- Produto 31 - Air force branco, preto e preto -->
+          <!-- 11. Produto: Air Force -->
           <div
             class="product-card"
             data-id="prod-new-006"
@@ -582,27 +518,31 @@
               href="#"
               class="favorite-icon"
               aria-label="Adicionar aos Favoritos"
-              ><i class="far fa-heart"></i
-            ></a>
-            <img src="Tênis Preto e Braco.jpg" alt="Air force" />
+            >
+              <i class="far fa-heart"></i>
+            </a>
+            <img
+              src="Tênis Preto e Braco.jpg"
+              alt="Air force"
+              onerror="this.src='https://placehold.co/300x300?text=Air+Force'"
+            />
             <div class="product-info">
-              <h3 class="product-name">Air Force Preto e Branco</h3>
+              <h3 class="product-name">Tênis Air Force Preto e Branco</h3>
               <p class="product-price">R$ 150,00</p>
-              
-              <!-- Botão WhatsApp Substituído -->
-              <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank">
+              <a
+                href="http://wa.me/552198092293?"
+                class="whatsapp-btn"
+                target="_blank"
+              >
                 <i class="fab fa-whatsapp"></i> WhatsApp
               </a>
-
-              <a
-                href="Tênis_AIR_force_Branco_Preto.html"
-                class="buy-now-btn"
+              <a href="Tênis_AIR_force_Branco_Preto.html" class="buy-now-btn"
                 >Comprar</a
               >
             </div>
           </div>
-          
-          <!-- Produto 32 - Air force branco e cinza -->
+
+          <!-- 32. Produto: Air force Branco e Cinza -->
           <div
             class="product-card"
             data-id="prod-new-007"
@@ -616,30 +556,34 @@
               aria-label="Adicionar aos Favoritos"
               ><i class="far fa-heart"></i
             ></a>
-            <img src="tênis branco e ciza.jpg" alt="Air force" />
+            <img
+              src="tênis branco e ciza.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Air+Force+BC'"
+              alt="Air force"
+            />
             <div class="product-info">
-              <h3 class="product-name">Air force Branco e Cinza</h3>
+              <h3 class="product-name">Tênis Air Force Branco e Cinza</h3>
               <p class="product-price">R$ 150,00</p>
-              
-              <!-- Botão WhatsApp Substituído -->
-              <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-              </a>
-
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
               <a href="Tênis_Branco_e_cinza.html" class="buy-now-btn nav-link"
                 >Comprar</a
               >
             </div>
           </div>
 
-        
-          <!-- Produto 33 - Air force branco com rosa -->
+          <!-- 33. Produto: Air Force Branco com Bosa -->
           <div
             class="product-card"
             data-id="prod-new-008"
             data-name="Air force"
             data-price="150.00"
-            data-image="Têni _Brnco_e_Rosa.jpg"
+            data-image="Tênis  brnco e rosa.jpg"
           >
             <a
               href="#"
@@ -647,22 +591,26 @@
               aria-label="Adicionar aos Favoritos"
               ><i class="far fa-heart"></i
             ></a>
-            <img src="Tênis_Branco_e_Rosa.jpg" alt="Air force" />
+            <img
+              src="Tênis_Branco_e_Rosa.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Air+Force+Rosa'"
+              alt="Air force"
+            />
             <div class="product-info">
-              <h3 class="product-name">Air Force Branco e Cinza</h3>
+              <h3 class="product-name">Tênis Air Force Branco com Bosa</h3>
               <p class="product-price">R$ 150,00</p>
-              
-              <!-- Botão WhatsApp Substituído -->
-              <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-              </a>
-
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
               <a href="tênis_Branco_e_Rosa.html" class="buy-now-btn">Comprar</a>
-              
             </div>
           </div>
 
-          <!-- Produto 34 - Air Force Marrom -->
+          <!-- 34. Produto: Air Force Marrom -->
           <div
             class="product-card"
             data-id="prod-new-011"
@@ -676,29 +624,37 @@
               aria-label="Adicionar aos Favoritos"
               ><i class="far fa-heart"></i
             ></a>
-            <img src="Tênis marrom.jpg" alt="Air Force Marrom" />
+            <img
+              src="Tênis marrom.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Air+Force+Marrom'"
+              alt="Air Force Marrom"
+            />
             <div class="product-info">
-              <h3 class="product-name">Air Force Marron</h3>
+              <h3 class="product-name">Tênis Air Force Marrom</h3>
               <p class="product-price">R$ 150,00</p>
-              
-              <!-- Botão WhatsApp Substituído -->
-              <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-              </a>
-
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
               <a href="tênis_marron.html" class="buy-now-btn nav-link"
                 >Comprar</a
               >
             </div>
           </div>
 
-           <!-- Produto 34 - Air Force  Cinza e Verde-->
+          <!-- Título da Categoria Relógios e Acessórios -->
+          <h3 class="category-title">Relógios e Acessórios</h3>
+
+          <!-- 35. Produto: Smart watch 8 Pro -->
           <div
             class="product-card"
-            data-id="prod-new-011"
-            data-name="Air Force"
-            data-price="150.00"
-            data-image="tênes cinza e verde.jpg"
+            data-id="prod-new-003"
+            data-name="Smart watch 8 Pro"
+            data-price="135.00"
+            data-image="Relógio Smart Watch 8 plus 1 - Copia.jpg"
           >
             <a
               href="#"
@@ -706,38 +662,265 @@
               aria-label="Adicionar aos Favoritos"
               ><i class="far fa-heart"></i
             ></a>
-            <img src="tênes cinza e verde.jpg" alt="Air Force Marrom" />
+            <img
+              src="relogio Smart watch 8.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+8'"
+              alt="Smart watch 9 Pro"
+            />
             <div class="product-info">
-              <h3 class="product-name">Air Force Cinza e Verde</h3>
-              <p class="product-price">R$ 150,00</p>
-              
-              <!-- Botão WhatsApp Substituído -->
-              <a href="https://wa.me/552198092293" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-              </a>
-
-              <a href="tênia_cinza_e_verde.html" class="buy-now-btn nav-link"
+              <h3 class="product-name">Relógio Smart watch 8 Pro</h3>
+              <p class="product-price">R$ 135,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="Relogio_Smart_Watch_8_Pro.html" class="buy-now-btn"
                 >Comprar</a
               >
             </div>
           </div>
 
+          <!-- 36. Produto: Microwear RUN2 -->
+          <div
+            class="product-card"
+            data-id="prod-new-014"
+            data-name="Microwear RUN2"
+            data-price="200.00"
+            data-image="Relogio microwear Run2.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="Relogio microwear Run2.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Microwear+Run2'"
+              alt="Microwear RUN2"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Relógio Microwear RUN2</h3>
+              <p class="product-price">R$ 200,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a
+                href="http://127.0.0.1:3000/Relógio_micro_Rum.html?serverWindowId=47361ac8-f25b-4b9e-8e33-7201b9edacd2"
+                class="buy-now-btn nav-link"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+          <!-- 37. Produto: Smart watch ultra 9 plus -->
+          <div
+            class="product-card"
+            data-id="prod-new-015"
+            data-name="Smart watch ultra 9 plus"
+            data-price="170.00"
+            data-image="Relogio microwear ultra 9.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="Relogio microwear ultra 9.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Ultra+9+Plus'"
+              alt="Smart watch ultra 9 plus"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Relógio Smart watch ultra 9 plus</h3>
+              <p class="product-price">R$ 170,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a
+                href="http://127.0.0.1:3000/Relógio_Smart_Watch_9_Plus.html?serverWindowId=a225e7f2-6042-4a26-93a3-243c0a6ca689"
+                class="buy-now-btn"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+          <!-- 38. Produto: Relógio Microwear ultramani -->
+          <div
+            class="product-card"
+            data-id="prod-microwear-ultramani"
+            data-name="Relogio microwear ultramani"
+            data-price="190.00"
+            data-image="Relogio microwear ultramani200.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="relogio microwear ultramani200.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Ultramani'"
+              alt="Imagem do Produto 2"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Relogio microwear ultramani</h3>
+              <p class="product-price">R$ 190,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a
+                href="http://127.0.0.1:3000/relogio_microwear_ultramani200.html?serverWindowId=47361ac8-f25b-4b9e-8e33-7201b9edacd2"
+                class="buy-now-btn"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+          <!-- 39. Produto: Relógio W69 ultra -->
+          <div
+            class="product-card"
+            data-id="prod-new-005"
+            data-name="W69 ultra"
+            data-price="180.00"
+            data-image="Relógio w69 utra.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="Relógio w69 utra.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=W69+Ultra'"
+              alt="W69 ultra"
+            />
+            <div class="product-info">
+              <h3 class="product-name">W69 ultra</h3>
+              <p class="product-price">R$ 180,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a
+                href="http://127.0.0.1:3000/Relógio_W69_Ultra.html?serverWindowId=1c607c5b-66ae-44e3-b102-8a7ef485491f"
+                class="buy-now-btn nav-link"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+          <!-- 40. Produto: Pulcera lisa -->
+          <div
+            class="product-card"
+            data-id="prod-new-010"
+            data-name="One Million Royal"
+            data-price="548.60"
+            data-image="pulcera lisa.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="pulcera lisa.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Pulseira'"
+              alt="Pulcera lisa"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Pulcera lisa</h3>
+              <p class="product-price">R$ 15,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="Pulceira_para_relogio.html" class="buy-now-btn"
+                >Comprar</a
+              >
+            </div>
+          </div>
+
+          <!-- 41. Produto: Relógio Smart watch ultra gold 24k -->
+          <div
+            class="product-card"
+            data-id="prod-new-016"
+            data-name="Smart watch ultra gold 24k"
+            data-price="180.00"
+            data-image="relógio ultra mini gold smart watch.jpg"
+          >
+            <a
+              href="#"
+              class="favorite-icon"
+              aria-label="Adicionar aos Favoritos"
+              ><i class="far fa-heart"></i
+            ></a>
+            <img
+              src="relógio ultra mini gold smart watch.jpg"
+              onerror="this.src='https://placehold.co/300x300?text=Smart+Watch+Gold'"
+              alt="Smart watch ultra gold"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Relógio Smart watch ultra gold 24k</h3>
+              <p class="product-price">R$ 180,00</p>
+              <!-- Botão WhatsApp corrigido com classe correta -->
+              <a
+                href="https://wa.me/552198092293"
+                class="whatsapp-btn"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a
+                href="http://127.0.0.1:3000/Relógio_ultra_Gold_24k.html?serverWindowId=a225e7f2-6042-4a26-93a3-243c0a6ca689"
+                class="buy-now-btn nav-link"
+                >Comprar</a
+              >
+            </div>
+          </div>
         </div>
       </section>
     </main>
-
-    <!-- ======================= -->
-    <!-- RODAPÉ (FOOTER)         -->
-    <!-- ======================= -->
+    <!-- RODAPÉ (FOOTER) -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-column">
             <h4>Categorias</h4>
+            <!-- Corrigido erro de aninhamento de UL que havia no código original -->
             <ul class="list-unstyled">
               <li><a href="index_Logado.html">Início</a></li>
               <li><a href="catalogo_de_produtos.html">Produtos</a></li>
-              <!-- Link carrinho removido conforme solicitado -->
+               <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="index.html">Sair</a></li>
+               
+               
+               
+
             </ul>
           </div>
           <div class="footer-column">
@@ -745,16 +928,27 @@
             <ul class="list-unstyled">
               <li><a href="sobre_Nois.html">Sobre Nós</a></li>
               <li><a href="FAQ.html">FAQ</a></li>
-              <li><a href="Politicas_de_privacidade.html">Política de Privacidade</a></li>
+              <!-- Corrigidos links com barras invertidas -->
+              <li>
+                <a href="Politicas_de_privacidade.html"
+                  >Política de Privacidade</a
+                >
+              </li>
               <li><a href="Termos_de_Uso.html">Termos de Serviço</a></li>
             </ul>
           </div>
           <div class="footer-column">
             <h4>Fique Conectado</h4>
             <div class="social-icons">
-              <a href="http://www.facebook.com/Copains Pv"><i class="fab fa-facebook-f"></i></a>
-              <a href="http://www.instagram.com/Copains.pv"><i class="fab fa-instagram"></i></a>
-              <a href="http://wa.me/552198092293"><i class="fab fa-whatsapp"></i></a>
+              <a href="http://www.facebook.com/Copains Pv"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="http://www.instagram.com/Copains.pv"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="http://wa.me/552198092293"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -762,58 +956,164 @@
           <p class="mb-0">&copy; 2024 Copains. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer> 
-
-    <!-- Script Simples apenas para Filtro Visual (Sem carrinho) -->
+    </footer>
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT: Lógica de Busca e Menu Mobile         -->
+    <!-- ================================================= -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-          const searchInput = document.getElementById('catalog-search-input');
-          const productCards = document.querySelectorAll('.product-card');
-
-          // Funcionalidade de Pesquisa (Filtro)
-          if(searchInput) {
-              searchInput.addEventListener('input', (e) => {
-                  const searchTerm = e.target.value.toLowerCase();
-                  
-                  productCards.forEach(card => {
-                      const productName = card.getAttribute('data-name').toLowerCase();
-                      if(productName.includes(searchTerm)) {
-                          card.style.display = 'flex';
-                      } else {
-                          card.style.display = 'none';
-                      }
-                  });
-              });
-          }
-
-          // Visualização do "Favoritar" (Apenas muda a cor, não salva)
-          const favIcons = document.querySelectorAll('.favorite-icon');
-          favIcons.forEach(icon => {
-              icon.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  const iTag = icon.querySelector('i');
-                  if(iTag.classList.contains('far')) {
-                      iTag.classList.remove('far');
-                      iTag.classList.add('fas');
-                      icon.style.color = 'red';
-                  } else {
-                      iTag.classList.remove('fas');
-                      iTag.classList.add('far');
-                      icon.style.color = '#ccc';
-                  }
-              });
+      /**
+       * Função Principal executada quando o DOM estiver carregado.
+       * Contém:
+       * 1. Lógica do Menu Hamburger (Mobile).
+       * 2. Lógica do Filtro de Pesquisa.
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. LÓGICA DO MENU MOBILE ---
+        // Seleciona o botão hamburger e a lista de links
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const navLinks = document.getElementById("mobile-menu");
+        // Se os elementos existirem, adiciona o evento de clique
+        if (hamburgerBtn && navLinks) {
+          hamburgerBtn.addEventListener("click", () => {
+            // Alterna a classe 'active' que move o menu da esquerda para a tela
+            navLinks.classList.toggle("active");
           });
-          
-          // Script do Menu Mobile
-          const hamburger = document.getElementById('hamburger-btn');
-          const navLinks = document.getElementById('mobile-menu');
+        }
+        // --- 2. LÓGICA DE PESQUISA (FILTRO) ---
+        const searchInput = document.getElementById("catalog-search-input");
+        const productGrid = document.querySelector(".product-grid");
 
-          if(hamburger && navLinks) {
-              hamburger.addEventListener('click', () => {
-                  navLinks.classList.toggle('active');
-              });
+        // Seleciona tanto os cards de produto quanto os títulos de categoria
+        const allItems = productGrid.querySelectorAll(
+          ".product-card, .category-title"
+        );
+        const categoryTitles = productGrid.querySelectorAll(".category-title");
+        if (searchInput) {
+          // Adiciona um "ouvinte" para detectar digitação no campo de busca
+          searchInput.addEventListener("input", () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            // Passo A: Filtra os produtos
+            productGrid.querySelectorAll(".product-card").forEach((card) => {
+              // Obtém o nome do produto do atributo data-name
+              const productName = (card.dataset.name || "").toLowerCase();
+              // Verifica se o nome contém o termo pesquisado
+              if (productName.includes(searchTerm)) {
+                card.style.display = "flex"; // Mostra o card
+              } else {
+                card.style.display = "none"; // Esconde o card
+              }
+            });
+
+            // Passo B: Gerencia a visibilidade dos títulos das categorias
+            // Esconde títulos de categoria se não houver produtos visíveis abaixo dele
+            categoryTitles.forEach((title) => {
+              let nextElement = title.nextElementSibling;
+              let hasVisibleProducts = false;
+
+              // Verifica os elementos irmãos seguintes até encontrar o próximo título ou o fim
+              while (
+                nextElement &&
+                !nextElement.classList.contains("category-title")
+              ) {
+                if (
+                  nextElement.classList.contains("product-card") &&
+                  nextElement.style.display !== "none"
+                ) {
+                  hasVisibleProducts = true;
+                  break; // Encontrou um produto visível, mantém o título
+                }
+                nextElement = nextElement.nextElementSibling;
+              }
+              // Exibe ou oculta o título da categoria baseado nos produtos
+              title.style.display = hasVisibleProducts ? "block" : "none";
+            });
+          });
+        }
+
+        // === FAVORITOS: gerencia clique em coração e persiste em localStorage ===
+        function getFavorites() {
+          try {
+            return JSON.parse(localStorage.getItem("favorites")) || [];
+          } catch (e) {
+            return [];
           }
+        }
+        function setFavorites(list) {
+          localStorage.setItem("favorites", JSON.stringify(list));
+        }
+
+        function toggleFavorite(product, btn) {
+          const id = product.id;
+          let favorites = getFavorites();
+          const exists = favorites.find((p) => p.id === id);
+          if (exists) {
+            favorites = favorites.filter((p) => p.id !== id);
+            setFavorites(favorites);
+            if (btn) btn.classList.remove("favorited");
+            if (btn && btn.querySelector("i")) {
+              btn.querySelector("i").classList.remove("fas");
+              btn.querySelector("i").classList.add("far");
+            }
+          } else {
+            favorites.push(product);
+            setFavorites(favorites);
+            if (btn) btn.classList.add("favorited");
+            if (btn && btn.querySelector("i")) {
+              btn.querySelector("i").classList.remove("far");
+              btn.querySelector("i").classList.add("fas");
+            }
+          }
+        }
+
+        function buildProductObjectFromCard(card) {
+          const id =
+            card.dataset.id || `${Math.random().toString(36).slice(2, 9)}`;
+          const name =
+            card.dataset.name ||
+            card.querySelector(".product-name")?.textContent.trim() ||
+            "";
+          const price =
+            card.dataset.price ||
+            card.querySelector(".product-price")?.textContent.trim() ||
+            "";
+          const image = card.querySelector("img")?.src || "";
+          const link = card.querySelector(".buy-now-btn")?.href || "#";
+          return { id, name, price, image, link };
+        }
+
+        // Seleciona todos os botões de favorite e adiciona handlers
+        const favoriteButtons = document.querySelectorAll(".favorite-icon");
+        favoriteButtons.forEach((btn) => {
+          // Corrige comportamento padrão
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".product-card");
+            const product = buildProductObjectFromCard(card);
+            toggleFavorite(product, btn);
+          });
+        });
+
+        // Atualiza estado dos icons se já houver favoritos salvos
+        const favorites = getFavorites();
+        if (favorites && favorites.length > 0) {
+          // Para cada card, verifica se está nos favoritos
+          document.querySelectorAll(".product-card").forEach((card) => {
+            const id = card.dataset.id;
+            if (!id) return;
+            const btn = card.querySelector(".favorite-icon");
+            const found = favorites.find((p) => p.id === id);
+            if (found && btn) {
+              btn.classList.add("favorited");
+              const icon = btn.querySelector("i");
+              if (icon) {
+                icon.classList.remove("far");
+                icon.classList.add("fas");
+              }
+            }
+          });
+        }
       });
     </script>
-</body>
+  </body>
 </html>
